@@ -1,12 +1,15 @@
 package com.example.a03kotlincoroutines.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.View.OnClickListener
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.data.MovieAdapter
 import com.example.a03kotlincoroutines.model.Movie
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,12 +18,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rvMovies.layoutManager = LinearLayoutManager(this)
         rvMovies.adapter = MovieAdapter(mockMovies(), this)
+        rvMovies.layoutManager = LinearLayoutManager(this)
+//        rvMovies.addOnItemTouchListener()
+
+
+        rvMovies.setOnClickListener { OnClickListener() }
+
+
+
+
     }
 
 
-    fun mockMovies():List<Movie>{
+    private fun mockMovies():List<Movie>{
         val movies = mutableListOf<Movie>()
         movies.add(Movie("path", "Отличное кино", "1997-08-03", 10, "Матрица", 100))
         movies.add(Movie("path", "Хорошее такое кино", "2016-05-01", 40, "Скала", 85))

@@ -15,20 +15,23 @@ class MovieAdapter(private val movies: List<Movie>, private val context: Context
 //    val urlscr = "https://image.tmdb.org/t/p/w500"
 
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+
         val tvOverview = itemView.tvOverview
         val tvReleaseDate = itemView.tvReleaseDate
         val tvTitle = itemView.tvTitle
         val tvPopularity = itemView.tvPopularity
+
+
     }
+
+
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         return MovieViewHolder(
-            LayoutInflater.from(context).inflate(
-                R.layout.movie_item,
-                parent,
-                false
-            )
+            LayoutInflater.from(context).inflate(R.layout.movie_item, parent, false)
         )
     }
 
@@ -42,5 +45,6 @@ class MovieAdapter(private val movies: List<Movie>, private val context: Context
         holder.tvOverview.text = currentMovie.overview
         holder.tvReleaseDate.text = currentMovie.release_date
         holder.tvPopularity.text = currentMovie.popularity.toString()
+        //Picasso.with(view.context).load(photo.url).into(view.itemImage)
     }
 }
