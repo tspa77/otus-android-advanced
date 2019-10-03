@@ -4,30 +4,26 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.model.Movie
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MovieAdapter(private val movies: List<Movie>, private val context: Context) :
+class MovieAdapter(
+    private val movies: List<Movie>,
+    private val context: Context
+) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
 //    val urlscr = "https://image.tmdb.org/t/p/w500"
 
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-
-        val tvOverview = itemView.tvOverview
-        val tvReleaseDate = itemView.tvReleaseDate
-        val tvTitle = itemView.tvTitle
-        val tvPopularity = itemView.tvPopularity
-
-
+        val tvOverview: TextView = itemView.tvOverview
+        val tvReleaseDate: TextView = itemView.tvReleaseDate
+        val tvTitle: TextView = itemView.tvTitle
+        val tvPopularity: TextView = itemView.tvPopularity
     }
-
-
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         return MovieViewHolder(
