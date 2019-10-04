@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a03kotlincoroutines.R
-import com.example.a03kotlincoroutines.model.Movie
+import com.example.a03kotlincoroutines.mvp.model.Movie
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieAdapter(
@@ -15,8 +15,6 @@ class MovieAdapter(
     private val context: Context
 ) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-
-//    val urlscr = "https://image.tmdb.org/t/p/w500"
 
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvOverview: TextView = itemView.tvOverview

@@ -1,5 +1,8 @@
-package com.example.a03kotlincoroutines.model
+package com.example.a03kotlincoroutines.mvp.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Movie(
     val poster_path: String,
     val overview: String,
