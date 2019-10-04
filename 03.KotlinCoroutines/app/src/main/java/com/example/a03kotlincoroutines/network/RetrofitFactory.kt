@@ -11,8 +11,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
 
-class RetrofitFactory {
-    companion object {
+object RetrofitFactory {
+
         private fun getOkHttpInstance(): OkHttpClient {
             return OkHttpClient()
                 .newBuilder()
@@ -52,5 +52,5 @@ class RetrofitFactory {
 
         @UnstableDefault
         fun getMovieService() = getRetrofitClient().create(Api::class.java)
-    }
+
 }
