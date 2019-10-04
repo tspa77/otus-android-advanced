@@ -12,13 +12,15 @@ class MainPresenter(private val view: MovieContract.View) : MovieContract.Presen
         view.showLoading()
         networkProvider.getListMovies({
             view.hideLoading()
-            view.setupRecyclerView(it)
+            view.updateListMovies(it)
         }, {
             view.hideLoading()
             Log.d("!!!", it.stackTrace.joinToString("\n"))
             view.showError(it.localizedMessage)
         })
     }
+
+
 
 
     override fun loadMovie() {

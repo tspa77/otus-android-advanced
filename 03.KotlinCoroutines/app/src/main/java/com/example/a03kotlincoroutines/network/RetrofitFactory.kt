@@ -34,12 +34,10 @@ class RetrofitFactory {
                 .newBuilder()
                 .addQueryParameter("api_key", Api.KEY)
                 .build()
-
             val newRequest = chain.request()
                 .newBuilder()
                 .url(newUrl)
                 .build()
-
             chain.proceed(newRequest)
         }
 

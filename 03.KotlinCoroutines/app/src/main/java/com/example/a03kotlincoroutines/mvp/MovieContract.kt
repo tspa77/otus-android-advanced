@@ -6,7 +6,7 @@ import com.example.a03kotlincoroutines.mvp.view.BaseView
 
 interface MovieContract {
     interface View : BaseView<Presenter> {
-        fun setupRecyclerView(listMovies: List<Movie>)
+       fun updateListMovies(loadMovies: List<Movie>)
     }
 
     interface Presenter : BasePresenter {
