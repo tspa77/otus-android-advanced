@@ -12,7 +12,7 @@ object CoroutineNetworkProvider:NetworkProvider {
     override fun getListMovies(onDone: (List<Movie>) -> Unit, onError: (Throwable) -> Unit) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
-                onDone(api.getListPopularMovies())
+                onDone(api.getListPopularMovies().results)
             } catch (e: Exception) {
                 onError(e)
             }

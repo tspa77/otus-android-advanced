@@ -2,13 +2,11 @@ package com.example.a03kotlincoroutines.network
 
 import com.example.a03kotlincoroutines.BuildConfig
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.io.IOException
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
@@ -18,24 +16,31 @@ class RetrofitFactory {
         private fun getOkHttpInstance(): OkHttpClient {
             return OkHttpClient()
                 .newBuilder()
-                .addInterceptor(HttpLoggingInterceptor().apply {
-                    level = if (BuildConfig.DEBUG) {
-                        HttpLoggingInterceptor.Level.BODY
-                    } else {
-                        HttpLoggingInterceptor.Level.NONE
-                    }
-                })
-                .addInterceptor(object : Interceptor {
-                    @Throws(IOException::class)
-                    override fun intercept(chain: Interceptor.Chain): Response {
-                        val originalRequest = chain.request()
-                        val builder = originalRequest.newBuilder()
-                            .header("api_key", "key")
-                        val newRequest = builder.build()
-                        return chain.proceed(newRequest)
-                    }
-                })
+                .addInterceptor(authInterceptor)
+                .addInterceptor(loggingInterceptor)
                 .build()
+        }
+
+        private val loggingInterceptor = HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY
+            } else {
+                HttpLoggingInterceptor.Level.NONE
+            }
+        }
+
+        private val authInterceptor = Interceptor { chain ->
+            val newUrl = chain.request().url
+                .newBuilder()
+                .addQueryParameter("api_key", Api.KEY)
+                .build()
+
+            val newRequest = chain.request()
+                .newBuilder()
+                .url(newUrl)
+                .build()
+
+            chain.proceed(newRequest)
         }
 
         @UnstableDefault

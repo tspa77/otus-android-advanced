@@ -9,5 +9,10 @@ data class Movie(
     val release_date: String,
     val id: Int,
     val title: String,
-    val popularity: Int
+    val popularity: String
+)
+
+@Serializable
+data class ListMovies(
+    val results: List<Movie>
 )
