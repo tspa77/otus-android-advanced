@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.mvp.model.Movie
+import com.example.a03kotlincoroutines.network.Api.Companion.IMAGE_URL
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieAdapter(
@@ -20,6 +22,7 @@ class MovieAdapter(
         val tvReleaseDate: TextView = itemView.tvReleaseDate
         val tvTitle: TextView = itemView.tvTitle
         val tvPopularity: TextView = itemView.tvPopularity
+        val ivPoster = itemView.ivPoster
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -37,6 +40,15 @@ class MovieAdapter(
         holder.tvTitle.text = currentMovie.title
         holder.tvReleaseDate.text = currentMovie.release_date
         holder.tvPopularity.text = currentMovie.popularity
-        //Picasso.with(view.context).load(photo.url).into(view.itemImage)
+        Picasso.get()
+            .load(IMAGE_URL+currentMovie.poster_path)
+            .into(holder.ivPoster)
+
+//        Picasso.get()
+//            .load(url)
+//            .placeholder(R.drawable.user_placeholder)
+//            .error(R.drawable.user_placeholder_error)
+//            .into(imageView);
+
     }
 }

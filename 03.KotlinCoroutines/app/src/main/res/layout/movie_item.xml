@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/ivPoster"
-            android:layout_width="0dp"
+            android:layout_width="70dp"
             android:layout_height="100dp"
             android:contentDescription="@string/ivPoster"
             android:src="@mipmap/ic_launcher"
@@ -29,13 +29,14 @@
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toTopOf="@+id/tvReleaseDateLbl"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivPoster"
-            app:layout_constraintTop_toBottomOf="@+id/tvPopularityLbl"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Title" />
 
         <TextView
@@ -45,7 +46,7 @@
             android:layout_marginEnd="8dp"
             android:text="@string/tvReleaseDateLbl"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tvReleaseDate"
             tools:text="Release Date" />
@@ -54,8 +55,9 @@
             android:id="@+id/tvReleaseDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="2019-12-12" />
@@ -64,12 +66,12 @@
             android:id="@+id/tvPopularityLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:text="@string/tvPopularityLbl"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="14sp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivPoster"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="Popularity" />
 
         <TextView
@@ -78,9 +80,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="14sp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvPopularityLbl"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="100.000" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
