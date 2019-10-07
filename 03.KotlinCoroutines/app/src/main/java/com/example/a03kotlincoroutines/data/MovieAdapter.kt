@@ -15,9 +15,15 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 
+class MovieAdapter(
+    private val movies: List<Movie>,
+    private val context: Context,
+    private val onItemClickListener: OnItemClickListener
+) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-class MovieAdapter(private val movies: List<Movie>, private val context: Context) :
-    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+    interface OnItemClickListener {
+        fun onItemClicked(movie: Movie)
+    }
 
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvReleaseDate: TextView = itemView.tvReleaseDate
@@ -32,16 +38,12 @@ class MovieAdapter(private val movies: List<Movie>, private val context: Context
         view.setOnClickListener {
             val adapterPosition = holder.adapterPosition
             if (adapterPosition != RecyclerView.NO_POSITION) {
-                itemClicked(adapterPosition)
+                onItemClickListener.onItemClicked(movies[adapterPosition])
             }
         }
         return holder
     }
 
-    private fun itemClicked(adapterPosition: Int) {
-        // TODO("not implemented")
-        Toast.makeText(context, "Ты жамкнул на ${movies[adapterPosition].title}", Toast.LENGTH_SHORT).show()
-    }
 
     override fun getItemCount(): Int {
         return movies.size
