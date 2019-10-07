@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-object CoroutineNetworkProvider:NetworkProvider {
+object CoroutineNetworkProvider : NetworkProvider {
 
     private val api = RetrofitFactory.getMovieService()
 
@@ -17,7 +17,6 @@ object CoroutineNetworkProvider:NetworkProvider {
                 onError(e)
             }
         }
-
     }
 
     override fun getDetailMovie(
@@ -27,5 +26,4 @@ object CoroutineNetworkProvider:NetworkProvider {
     ) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 }

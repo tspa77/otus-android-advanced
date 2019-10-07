@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a03kotlincoroutines.AppConstans
 import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.mvp.model.Movie
-import com.example.a03kotlincoroutines.network.Api.Companion.IMAGE_URL
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_item.view.*
 
@@ -55,7 +54,7 @@ class MovieAdapter(
         holder.tvReleaseDate.text = currentMovie.release_date
         holder.tvPopularity.text = currentMovie.popularity
         Picasso.get()
-            .load(IMAGE_URL + currentMovie.poster_path)
+            .load(AppConstans.IMAGE_URL + currentMovie.poster_path)
             .into(holder.ivPoster)
     }
 }

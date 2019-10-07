@@ -45,7 +45,7 @@ object RetrofitFactory {
         @UnstableDefault
         private fun getRetrofitClient(): Retrofit {
             return Retrofit.Builder()
-                .baseUrl(Api.BASE_URL)
+                .baseUrl(AppConstans.BASE_URL)
                 .client(getOkHttpInstance())
                 .addConverterFactory(Json.nonstrict.asConverterFactory(contentType = "application/json".toMediaTypeOrNull()!!))
                 .build()
