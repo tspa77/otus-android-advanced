@@ -1,5 +1,6 @@
 package com.example.a03kotlincoroutines.network
 
+import com.example.a03kotlincoroutines.AppConstans
 import com.example.a03kotlincoroutines.BuildConfig
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.UnstableDefault
@@ -32,7 +33,7 @@ object RetrofitFactory {
         private val authInterceptor = Interceptor { chain ->
             val newUrl = chain.request().url
                 .newBuilder()
-                .addQueryParameter("api_key", Api.KEY)
+                .addQueryParameter("api_key", AppConstans.tmdbApiKey)
                 .build()
             val newRequest = chain.request()
                 .newBuilder()
