@@ -2,19 +2,19 @@ package com.example.a03kotlincoroutines.mvp.presenter
 
 import android.util.Log
 import com.example.a03kotlincoroutines.AppConstans.MY_TAG
-import com.example.a03kotlincoroutines.mvp.PreviewContract
+import com.example.a03kotlincoroutines.mvp.DetailsContract
 import com.example.a03kotlincoroutines.network.CoroutineNetworkProvider
 
-class PresenterPreviews(private val view: PreviewContract.ViewList<PresenterPreviews>) :
-    PreviewContract.PresenterListPreviews {
+class PresenterDetails(private val view: DetailsContract.ViewInfo<PresenterDetails>) :
+    DetailsContract.PresenterDetails {
 
     private val networkProvider = CoroutineNetworkProvider
 
-    override fun loadListPreviews() {
+    override fun loadDetailsInfo(id: Int) {
         view.showLoading()
-        networkProvider.getListPreviews({
+        networkProvider.getDetailsInfo(id, {
             view.hideLoading()
-            view.showListPreviews(it)
+            view.showDetailsInfo(it)
         }, {
             view.hideLoading()
             Log.d(MY_TAG, it.stackTrace.joinToString("\n"))

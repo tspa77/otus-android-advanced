@@ -12,7 +12,7 @@ data class MoviePreview(
 )
 
 @Serializable
-data class MovieFullInfo(
+data class MovieDetails(
     val poster_path: String,
     val overview: String,
     val release_date: String,

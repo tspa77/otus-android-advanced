@@ -1,8 +1,10 @@
 package com.example.a03kotlincoroutines.mvp.view
 
-interface BaseView<T> {
+interface BaseView {
 
     fun showLoading()
+
     fun hideLoading()
+
     fun showError(message: String)
 }

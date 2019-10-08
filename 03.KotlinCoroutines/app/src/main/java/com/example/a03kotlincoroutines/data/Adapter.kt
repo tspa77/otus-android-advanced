@@ -14,11 +14,11 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.card_movie_item.view.*
 
 
-class MovieAdapter(
+class Adapter(
     private val moviePreviews: List<MoviePreview>,
     private val context: Context,
     private val onItemClickListener: OnItemClickListener
-) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+) : RecyclerView.Adapter<Adapter.MovieViewHolder>() {
 
     interface OnItemClickListener {
         fun onItemClicked(moviePreview: MoviePreview)

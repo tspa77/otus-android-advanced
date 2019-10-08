@@ -1,6 +1,6 @@
 package com.example.a03kotlincoroutines.network
 
-import com.example.a03kotlincoroutines.mvp.model.MovieFullInfo
+import com.example.a03kotlincoroutines.mvp.model.MovieDetails
 import com.example.a03kotlincoroutines.mvp.model.MoviePreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +11,7 @@ object CoroutineNetworkProvider : NetworkProvider {
 
     private val api = RetrofitFactory.getMovieService()
 
-    override fun getListMovies(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit) {
+    override fun getListPreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
                 onDone(api.getListPopularMovies().results)
@@ -22,9 +22,9 @@ object CoroutineNetworkProvider : NetworkProvider {
     }
 
 
-    override fun getDetailMovie(
+    override fun getDetailsInfo(
         id: Int,
-        onDone: (MovieFullInfo) -> Unit,
+        onDone: (MovieDetails) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         CoroutineScope(Dispatchers.Main).launch {
