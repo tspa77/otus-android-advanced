@@ -1,15 +1,17 @@
 package com.example.a03kotlincoroutines.network
 
-import com.example.a03kotlincoroutines.mvp.model.Movie
+import com.example.a03kotlincoroutines.mvp.model.MovieFullInfo
+import com.example.a03kotlincoroutines.mvp.model.MoviePreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 object CoroutineNetworkProvider : NetworkProvider {
 
+
     private val api = RetrofitFactory.getMovieService()
 
-    override fun getListMovies(onDone: (List<Movie>) -> Unit, onError: (Throwable) -> Unit) {
+    override fun getListMovies(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
                 onDone(api.getListPopularMovies().results)
@@ -19,11 +21,18 @@ object CoroutineNetworkProvider : NetworkProvider {
         }
     }
 
+
     override fun getDetailMovie(
-        tag: String,
-        onDone: (Movie) -> Unit,
+        id: Int,
+        onDone: (MovieFullInfo) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                onDone(api.getMovie(id))
+            } catch (e: java.lang.Exception) {
+                onError(e)
+            }
+        }
     }
 }

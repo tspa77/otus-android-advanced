@@ -3,4 +3,5 @@
     <string name="ivPoster">Poster</string>
     <string name="tvPopularityLbl">Popularity</string>
     <string name="tvReleaseDateLbl">ReleaseDate</string>
+    <string name="tvVoteLbl">Vote</string>
 </resources>

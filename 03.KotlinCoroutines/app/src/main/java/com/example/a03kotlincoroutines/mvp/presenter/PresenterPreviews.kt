@@ -4,11 +4,12 @@ import android.util.Log
 import com.example.a03kotlincoroutines.mvp.MovieContract
 import com.example.a03kotlincoroutines.network.CoroutineNetworkProvider
 
-class MainPresenter(private val view: MovieContract.View) : MovieContract.Presenter {
+class PresenterPreviews(private val view: MovieContract.ViewList) :
+    MovieContract.PresenterListPreviews {
 
     private val networkProvider = CoroutineNetworkProvider
 
-    override fun loadListMovies() {
+    override fun loadListPreviews() {
         view.showLoading()
         networkProvider.getListMovies({
             view.hideLoading()
@@ -19,13 +20,4 @@ class MainPresenter(private val view: MovieContract.View) : MovieContract.Presen
             view.showError(it.localizedMessage)
         })
     }
-
-
-
-
-    override fun loadMovie() {
-        TODO("not implemented")
-    }
-
-
 }

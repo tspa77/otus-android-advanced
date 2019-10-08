@@ -1,13 +1,15 @@
 package com.example.a03kotlincoroutines.network
 
-import com.example.a03kotlincoroutines.mvp.model.ListMovies
+import com.example.a03kotlincoroutines.mvp.model.ListMoviePreviews
+import com.example.a03kotlincoroutines.mvp.model.MovieFullInfo
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface Api {
 
-    //    https://developers.themoviedb.org/3/movies/get-popular-movies
-    //    https://developers.themoviedb.org/3/movies/get-movie-details
-
     @GET("movie/popular")
-    suspend fun getListPopularMovies(): ListMovies
+    suspend fun getListPopularMovies(): ListMoviePreviews
+
+    @GET("movie/{movie_id}")
+    suspend fun getMovie(@Path("movie_id") id: Int): MovieFullInfo
 }

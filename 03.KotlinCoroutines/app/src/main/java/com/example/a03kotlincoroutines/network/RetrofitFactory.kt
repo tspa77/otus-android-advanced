@@ -14,44 +14,43 @@ import retrofit2.Retrofit
 
 object RetrofitFactory {
 
-        private fun getOkHttpInstance(): OkHttpClient {
-            return OkHttpClient()
-                .newBuilder()
-                .addInterceptor(authInterceptor)
-                .addInterceptor(loggingInterceptor)
-                .build()
+    private fun getOkHttpInstance(): OkHttpClient {
+        return OkHttpClient()
+            .newBuilder()
+            .addInterceptor(authInterceptor)
+            .addInterceptor(loggingInterceptor)
+            .build()
+    }
+
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+        level = if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor.Level.BODY
+        } else {
+            HttpLoggingInterceptor.Level.NONE
         }
+    }
 
-        private val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) {
-                HttpLoggingInterceptor.Level.BODY
-            } else {
-                HttpLoggingInterceptor.Level.NONE
-            }
-        }
+    private val authInterceptor = Interceptor { chain ->
+        val newUrl = chain.request().url
+            .newBuilder()
+            .addQueryParameter("api_key", AppConstans.tmdbApiKey)
+            .build()
+        val newRequest = chain.request()
+            .newBuilder()
+            .url(newUrl)
+            .build()
+        chain.proceed(newRequest)
+    }
 
-        private val authInterceptor = Interceptor { chain ->
-            val newUrl = chain.request().url
-                .newBuilder()
-                .addQueryParameter("api_key", AppConstans.tmdbApiKey)
-                .build()
-            val newRequest = chain.request()
-                .newBuilder()
-                .url(newUrl)
-                .build()
-            chain.proceed(newRequest)
-        }
+    @UnstableDefault
+    private fun getRetrofitClient(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(AppConstans.BASE_URL)
+            .client(getOkHttpInstance())
+            .addConverterFactory(Json.nonstrict.asConverterFactory(contentType = "application/json".toMediaTypeOrNull()!!))
+            .build()
+    }
 
-        @UnstableDefault
-        private fun getRetrofitClient(): Retrofit {
-            return Retrofit.Builder()
-                .baseUrl(AppConstans.BASE_URL)
-                .client(getOkHttpInstance())
-                .addConverterFactory(Json.nonstrict.asConverterFactory(contentType = "application/json".toMediaTypeOrNull()!!))
-                .build()
-        }
-
-        @UnstableDefault
-        fun getMovieService() = getRetrofitClient().create(Api::class.java)
-
+    @UnstableDefault
+    fun getMovieService() = getRetrofitClient().create(Api::class.java)
 }
