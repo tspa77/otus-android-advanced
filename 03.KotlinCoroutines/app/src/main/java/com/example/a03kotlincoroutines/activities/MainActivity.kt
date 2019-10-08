@@ -9,14 +9,14 @@ import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.data.MovieAdapter
 import com.example.a03kotlincoroutines.mvp.PreviewContract
 import com.example.a03kotlincoroutines.mvp.model.MoviePreview
-import com.example.a03kotlincoroutines.mvp.presenter.PresenterPreviews
+import com.example.a03kotlincoroutines.mvp.presenter.PreviewsPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : BaseLoadActivity(),
-    PreviewContract.ViewList<PresenterPreviews>, MovieAdapter.OnItemClickListener {
+class MainActivity : LoadActivity(),
+    PreviewContract.ListPreviewsView<PreviewsPresenter>, MovieAdapter.OnItemClickListener {
 
-    private lateinit var presenterPreviews: PresenterPreviews
+    private lateinit var presenterPreviews: PreviewsPresenter
     private val movieAdapter = MovieAdapter(this, this)
 
     override val progressBar: ProgressBar
@@ -29,7 +29,7 @@ class MainActivity : BaseLoadActivity(),
         rvMovies.adapter = movieAdapter
         rvMovies.layoutManager = LinearLayoutManager(this)
 
-        presenterPreviews = PresenterPreviews(this)
+        presenterPreviews = PreviewsPresenter(this)
         presenterPreviews.loadListPreviews()
     }
 

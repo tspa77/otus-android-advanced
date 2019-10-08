@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.a03kotlincoroutines.mvp.view.BaseView
 
 
-abstract class BaseLoadActivity : AppCompatActivity(), BaseView {
+abstract class LoadActivity : AppCompatActivity(), BaseView {
 
     abstract val progressBar :ProgressBar
 

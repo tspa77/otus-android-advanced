@@ -14,14 +14,6 @@ import retrofit2.Retrofit
 
 object RetrofitFactory {
 
-    private fun getOkHttpInstance(): OkHttpClient {
-        return OkHttpClient()
-            .newBuilder()
-            .addInterceptor(authInterceptor)
-            .addInterceptor(loggingInterceptor)
-            .build()
-    }
-
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor.Level.BODY
@@ -40,6 +32,14 @@ object RetrofitFactory {
             .url(newUrl)
             .build()
         chain.proceed(newRequest)
+    }
+
+    private fun getOkHttpInstance(): OkHttpClient {
+        return OkHttpClient()
+            .newBuilder()
+            .addInterceptor(authInterceptor)
+            .addInterceptor(loggingInterceptor)
+            .build()
     }
 
     @UnstableDefault

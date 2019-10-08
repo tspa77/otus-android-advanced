@@ -5,20 +5,20 @@ import com.example.a03kotlincoroutines.AppConstans.MY_TAG
 import com.example.a03kotlincoroutines.mvp.PreviewContract
 import com.example.a03kotlincoroutines.network.CoroutineNetworkProvider
 
-class PresenterPreviews(private val view: PreviewContract.ViewList<PresenterPreviews>) :
-    PreviewContract.PresenterListPreviews {
+class PreviewsPresenter(private val viewPreviews: PreviewContract.ListPreviewsView<PreviewsPresenter>) :
+    PreviewContract.ListPreviewsPresenter {
 
     private val networkProvider = CoroutineNetworkProvider
 
     override fun loadListPreviews() {
-        view.showLoading()
+        viewPreviews.showLoading()
         networkProvider.getListPreviews({
-            view.hideLoading()
-            view.showListPreviews(it)
+            viewPreviews.hideLoading()
+            viewPreviews.showListPreviews(it)
         }, {
-            view.hideLoading()
+            viewPreviews.hideLoading()
             Log.d(MY_TAG, it.stackTrace.joinToString("\n"))
-            view.showError(it.localizedMessage)
+            viewPreviews.showError(it.localizedMessage)
         })
     }
 }

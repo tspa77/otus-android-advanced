@@ -5,8 +5,8 @@ import com.example.a03kotlincoroutines.AppConstans.MY_TAG
 import com.example.a03kotlincoroutines.mvp.DetailsContract
 import com.example.a03kotlincoroutines.network.CoroutineNetworkProvider
 
-class PresenterDetails(private val view: DetailsContract.ViewInfo<PresenterDetails>) :
-    DetailsContract.PresenterDetails {
+class DetailsPresenter(private val view: DetailsContract.BaseViewInfo<DetailsPresenter>) :
+    DetailsContract.DetailsPresenter {
 
     private val networkProvider = CoroutineNetworkProvider
 

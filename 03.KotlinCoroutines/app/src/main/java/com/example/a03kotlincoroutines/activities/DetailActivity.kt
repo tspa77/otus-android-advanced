@@ -7,13 +7,13 @@ import com.example.a03kotlincoroutines.AppConstans.MOVIE_ID
 import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.mvp.DetailsContract
 import com.example.a03kotlincoroutines.mvp.model.MovieDetails
-import com.example.a03kotlincoroutines.mvp.presenter.PresenterDetails
+import com.example.a03kotlincoroutines.mvp.presenter.DetailsPresenter
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*
 
-class DetailActivity : BaseLoadActivity(), DetailsContract.ViewInfo<PresenterDetails> {
+class DetailActivity : LoadActivity(), DetailsContract.BaseViewInfo<DetailsPresenter> {
 
-    private lateinit var presenterInfo: PresenterDetails
+    private lateinit var presenterInfo: DetailsPresenter
 
     override val progressBar: ProgressBar
         get() = findViewById(R.id.progressBar)
@@ -23,7 +23,7 @@ class DetailActivity : BaseLoadActivity(), DetailsContract.ViewInfo<PresenterDet
         setContentView(R.layout.activity_movie_details)
 
         val id = intent.getIntExtra(MOVIE_ID, 0)
-        presenterInfo = PresenterDetails(this)
+        presenterInfo = DetailsPresenter(this)
         presenterInfo.loadDetailsInfo(id)
     }
 
