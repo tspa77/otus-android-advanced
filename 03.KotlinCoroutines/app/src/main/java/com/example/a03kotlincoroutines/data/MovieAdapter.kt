@@ -14,14 +14,20 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.card_movie_item.view.*
 
 
-class Adapter(
-    private val moviePreviews: List<MoviePreview>,
+class MovieAdapter(
     private val context: Context,
     private val onItemClickListener: OnItemClickListener
-) : RecyclerView.Adapter<Adapter.MovieViewHolder>() {
+) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+
+    private var listPreviews: List<MoviePreview> = emptyList()
 
     interface OnItemClickListener {
         fun onItemClicked(moviePreview: MoviePreview)
+    }
+
+    fun setData(listPreviews: List<MoviePreview>) {
+        this.listPreviews = listPreviews
+        notifyDataSetChanged()
     }
 
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,19 +43,18 @@ class Adapter(
         view.setOnClickListener {
             val adapterPosition = holder.adapterPosition
             if (adapterPosition != RecyclerView.NO_POSITION) {
-                onItemClickListener.onItemClicked(moviePreviews[adapterPosition])
+                onItemClickListener.onItemClicked(listPreviews[adapterPosition])
             }
         }
         return holder
     }
 
-
     override fun getItemCount(): Int {
-        return moviePreviews.size
+        return listPreviews.size
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val currentMovie = moviePreviews[position]
+        val currentMovie = listPreviews[position]
         holder.tvTitle.text = currentMovie.title
         holder.tvReleaseDate.text = currentMovie.release_date
         holder.tvPopularity.text = currentMovie.popularity

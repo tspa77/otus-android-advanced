@@ -6,7 +6,7 @@ import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a03kotlincoroutines.AppConstans.MOVIE_ID
 import com.example.a03kotlincoroutines.R
-import com.example.a03kotlincoroutines.data.Adapter
+import com.example.a03kotlincoroutines.data.MovieAdapter
 import com.example.a03kotlincoroutines.mvp.PreviewContract
 import com.example.a03kotlincoroutines.mvp.model.MoviePreview
 import com.example.a03kotlincoroutines.mvp.presenter.PresenterPreviews
@@ -14,20 +14,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : BaseLoadActivity(),
-    PreviewContract.ViewList<PresenterPreviews>, Adapter.OnItemClickListener {
+    PreviewContract.ViewList<PresenterPreviews>, MovieAdapter.OnItemClickListener {
 
-    private var listPreviews = mutableListOf<MoviePreview>()
     private lateinit var presenterPreviews: PresenterPreviews
+    private val movieAdapter = MovieAdapter(this, this)
 
     override val progressBar: ProgressBar
         get() = findViewById(R.id.progressBar)
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rvMovies.adapter = Adapter(listPreviews, this, this)
+        rvMovies.adapter = movieAdapter
         rvMovies.layoutManager = LinearLayoutManager(this)
 
         presenterPreviews = PresenterPreviews(this)
@@ -44,9 +43,6 @@ class MainActivity : BaseLoadActivity(),
         startActivity(intent)
     }
 
-    override fun showListPreviews(moviePreviews: List<MoviePreview>) {
-        listPreviews.clear()
-        listPreviews.addAll(moviePreviews)
-        rvMovies.adapter?.notifyDataSetChanged()
-    }
+    override fun showListPreviews(listPreviews: List<MoviePreview>) =
+        movieAdapter.setData(listPreviews)
 }

@@ -8,7 +8,6 @@ import kotlinx.coroutines.launch
 
 object CoroutineNetworkProvider : NetworkProvider {
 
-
     private val api = RetrofitFactory.getMovieService()
 
     override fun getListPreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit) {
@@ -20,7 +19,6 @@ object CoroutineNetworkProvider : NetworkProvider {
             }
         }
     }
-
 
     override fun getDetailsInfo(
         id: Int,
