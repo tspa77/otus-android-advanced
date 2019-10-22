@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.a03kotlincoroutines.AppConstans.MOVIE_ID
+import com.example.a03kotlincoroutines.AppConstants.MOVIE_ID
 import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.data.MovieAdapter
 import com.example.a03kotlincoroutines.mvp.PreviewContract

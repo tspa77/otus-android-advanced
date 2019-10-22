@@ -2,8 +2,8 @@ package com.example.a03kotlincoroutines.activities
 
 import android.os.Bundle
 import android.widget.ProgressBar
-import com.example.a03kotlincoroutines.AppConstans
-import com.example.a03kotlincoroutines.AppConstans.MOVIE_ID
+import com.example.a03kotlincoroutines.AppConstants
+import com.example.a03kotlincoroutines.AppConstants.MOVIE_ID
 import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.mvp.DetailsContract
 import com.example.a03kotlincoroutines.mvp.model.MovieDetails
@@ -29,12 +29,12 @@ class DetailActivity : LoadActivity(), DetailsContract.BaseViewInfo<DetailsPrese
 
     override fun showDetailsInfo(movieInfo: MovieDetails) {
         tvTitle.text = movieInfo.title
-        tvReleaseDate.text = movieInfo.release_date
-        tvVote.text = movieInfo.vote_average.toString()
+        tvReleaseDate.text = movieInfo.releaseDate
+        tvVote.text = movieInfo.voteAverage.toString()
         tvPopularity.text = movieInfo.popularity
         tvOverview.text = movieInfo.overview
         Picasso.get()
-            .load(AppConstans.IMAGE_URL + movieInfo.poster_path)
+            .load(AppConstants.IMAGE_URL + movieInfo.posterPath)
             .into(ivPoster)
     }
 }

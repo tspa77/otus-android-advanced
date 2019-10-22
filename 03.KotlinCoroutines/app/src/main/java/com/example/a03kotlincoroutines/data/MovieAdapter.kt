@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a03kotlincoroutines.AppConstans
+import com.example.a03kotlincoroutines.AppConstants
 import com.example.a03kotlincoroutines.R
 import com.example.a03kotlincoroutines.mvp.model.MoviePreview
 import com.squareup.picasso.Picasso
@@ -56,10 +56,10 @@ class MovieAdapter(
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val currentMovie = listPreviews[position]
         holder.tvTitle.text = currentMovie.title
-        holder.tvReleaseDate.text = currentMovie.release_date
+        holder.tvReleaseDate.text = currentMovie.releaseDate
         holder.tvPopularity.text = currentMovie.popularity
         Picasso.get()
-            .load(AppConstans.IMAGE_URL + currentMovie.poster_path)
+            .load(AppConstants.IMAGE_URL + currentMovie.posterPath)
             .into(holder.ivPoster)
     }
 }

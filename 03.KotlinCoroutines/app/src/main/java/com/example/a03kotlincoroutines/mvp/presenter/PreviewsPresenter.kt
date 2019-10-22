@@ -1,7 +1,7 @@
 package com.example.a03kotlincoroutines.mvp.presenter
 
 import android.util.Log
-import com.example.a03kotlincoroutines.AppConstans.MY_TAG
+import com.example.a03kotlincoroutines.AppConstants.MY_TAG
 import com.example.a03kotlincoroutines.mvp.PreviewContract
 import com.example.a03kotlincoroutines.network.CoroutineNetworkProvider
 

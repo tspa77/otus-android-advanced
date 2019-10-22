@@ -1,25 +1,37 @@
 package com.example.a03kotlincoroutines.mvp.model
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class MoviePreview(
-    val poster_path: String,
-    val release_date: String,
+    @SerialName("poster_path")
+    val posterPath: String,
+    @SerialName("release_date")
+    val releaseDate: String,
+    @SerialName("id")
     val id: Int,
+    @SerialName("title")
     val title: String,
+    @SerialName("popularity")
     val popularity: String
 )
 
 @Serializable
 data class MovieDetails(
-    val poster_path: String,
+    @SerialName("poster_path")
+    val posterPath: String,
+    @SerialName("overview")
     val overview: String,
-    val release_date: String,
+    @SerialName("release_date")
+    val releaseDate: String,
     val id: Int,
+    @SerialName("title")
     val title: String,
+    @SerialName("popularity")
     val popularity: String,
-    val vote_average: Double
+    @SerialName("vote_average")
+    val voteAverage: Double
 )
 
 @Serializable
