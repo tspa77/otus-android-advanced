@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context=".activities.DetailActivity">
+    tools:context=".details.DetailsActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
 
 
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,20 +25,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ivPoster"
+            android:id="@+id/iv_poster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:contentDescription="@string/ivPoster"
+            android:contentDescription="@string/iv_poster"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -48,49 +48,49 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivPoster"
+            app:layout_constraintTop_toBottomOf="@+id/iv_poster"
             tools:text="Title" />
 
         <TextView
-            android:id="@+id/tvReleaseDateLbl"
+            android:id="@+id/tv_release_date_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/tvReleaseDateLbl"
+            android:text="@string/tv_release_date_lbl"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="Release Date" />
 
         <TextView
-            android:id="@+id/tvReleaseDate"
+            android:id="@+id/tv_release_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/tvReleaseDateLbl"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintStart_toEndOf="@+id/tv_release_date_lbl"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="2019-12-12" />
 
         <TextView
-            android:id="@+id/tvPopularityLbl"
+            android:id="@+id/tv_popularity_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/tvPopularityLbl"
+            android:text="@string/tv_popularity_lbl"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
-            app:layout_constraintEnd_toStartOf="@+id/tvPopularity"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintEnd_toStartOf="@+id/tv_popularity"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="Popularity" />
 
         <TextView
-            android:id="@+id/tvPopularity"
+            android:id="@+id/tv_popularity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -98,42 +98,42 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="100.000" />
 
         <TextView
-            android:id="@+id/tvVoteLbl"
+            android:id="@+id/tv_vote_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/tvVoteLbl"
+            android:text="@string/tv_vote_lbl"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
-            app:layout_constraintEnd_toStartOf="@+id/tvVote"
+            app:layout_constraintEnd_toStartOf="@+id/tv_vote"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toEndOf="@+id/tvReleaseDate"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintStart_toEndOf="@+id/tv_release_date"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="Vote" />
 
         <TextView
-            android:id="@+id/tvVote"
+            android:id="@+id/tv_vote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
-            app:layout_constraintEnd_toStartOf="@+id/tvPopularityLbl"
+            app:layout_constraintEnd_toStartOf="@+id/tv_popularity_lbl"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvVoteLbl"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintStart_toEndOf="@+id/tv_vote_lbl"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="9.9" />
 
         <TextView
-            android:id="@+id/tvOverview"
+            android:id="@+id/tv_overview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -144,7 +144,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvReleaseDateLbl"
+            app:layout_constraintTop_toBottomOf="@+id/tv_release_date_lbl"
             app:layout_constraintVertical_bias="0.0"
             tools:text="@tools:sample/lorem/random" />
 

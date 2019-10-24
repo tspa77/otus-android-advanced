@@ -1,7 +1,7 @@
 package com.example.a03kotlincoroutines.network
 
-import com.example.a03kotlincoroutines.mvp.model.MovieDetails
-import com.example.a03kotlincoroutines.mvp.model.MoviePreview
+import com.example.a03kotlincoroutines.model.MovieDetails
+import com.example.a03kotlincoroutines.model.MoviePreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

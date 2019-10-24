@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.LoadActivity"></activity>
-        <activity android:name=".activities.DetailActivity" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".basics.LoadActivity"></activity>
+        <activity android:name=".details.DetailsActivity" />
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

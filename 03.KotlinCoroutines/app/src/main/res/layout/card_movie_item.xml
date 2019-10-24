@@ -8,16 +8,16 @@
     app:cardCornerRadius="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="4dp">
 
         <ImageView
-            android:id="@+id/ivPoster"
+            android:id="@+id/iv_poster"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="@string/ivPoster"
+            android:contentDescription="@string/iv_poster"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="H,3:2"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,32 +25,32 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/tvReleaseDateLbl"
+            app:layout_constraintBottom_toTopOf="@+id/tv_release_date_lbl"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivPoster"
+            app:layout_constraintStart_toEndOf="@+id/iv_poster"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Title" />
 
         <TextView
-            android:id="@+id/tvReleaseDateLbl"
+            android:id="@+id/tv_release_date_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="@string/tvReleaseDateLbl"
+            android:text="@string/tv_release_date_lbl"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvReleaseDate"
+            app:layout_constraintEnd_toStartOf="@+id/tv_release_date"
             tools:text="Release Date" />
 
         <TextView
-            android:id="@+id/tvReleaseDate"
+            android:id="@+id/tv_release_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -60,26 +60,26 @@
             tools:text="2019-12-12" />
 
         <TextView
-            android:id="@+id/tvPopularityLbl"
+            android:id="@+id/tv_popularity_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@string/tvPopularityLbl"
+            android:text="@string/tv_popularity_lbl"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivPoster"
+            app:layout_constraintStart_toEndOf="@+id/iv_poster"
             tools:text="Popularity" />
 
         <TextView
-            android:id="@+id/tvPopularity"
+            android:id="@+id/tv_popularity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvPopularityLbl"
+            app:layout_constraintStart_toEndOf="@+id/tv_popularity_lbl"
             tools:text="100.000" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

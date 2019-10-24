@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">03.KotlinCoroutines</string>
-    <string name="ivPoster">Poster</string>
-    <string name="tvPopularityLbl">Popularity</string>
-    <string name="tvReleaseDateLbl">ReleaseDate</string>
-    <string name="tvVoteLbl">Vote</string>
+    <string name="iv_poster">Poster</string>
+    <string name="tv_popularity_lbl">Popularity</string>
+    <string name="tv_release_date_lbl">ReleaseDate</string>
+    <string name="tv_vote_lbl">Vote</string>
 </resources>

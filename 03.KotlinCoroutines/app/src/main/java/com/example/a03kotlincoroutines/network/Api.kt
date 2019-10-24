@@ -1,7 +1,7 @@
 package com.example.a03kotlincoroutines.network
 
-import com.example.a03kotlincoroutines.mvp.model.ListMoviePreviews
-import com.example.a03kotlincoroutines.mvp.model.MovieDetails
+import com.example.a03kotlincoroutines.model.ListMoviePreviews
+import com.example.a03kotlincoroutines.model.MovieDetails
 import retrofit2.http.GET
 import retrofit2.http.Path
 
