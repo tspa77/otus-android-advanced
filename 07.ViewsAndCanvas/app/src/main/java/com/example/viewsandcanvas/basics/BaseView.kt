@@ -1,4 +1,4 @@
-package com.example.a03kotlincoroutines.basics
+package com.example.viewsandcanvas.basics
 
 interface BaseView {
 

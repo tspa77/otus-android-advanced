@@ -1,16 +1,16 @@
-package com.example.a03kotlincoroutines.main
+package com.example.viewsandcanvas.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.a03kotlincoroutines.AppConstants.MOVIE_ID
-import com.example.a03kotlincoroutines.basics.LoadActivity
+import com.example.viewsandcanvas.AppConstants.MOVIE_ID
+import com.example.viewsandcanvas.basics.LoadActivity
 import com.example.a03kotlincoroutines.R
-import com.example.a03kotlincoroutines.adapter.MovieAdapter
-import com.example.a03kotlincoroutines.basics.PreviewContract
-import com.example.a03kotlincoroutines.model.MoviePreview
-import com.example.a03kotlincoroutines.details.DetailsActivity
+import com.example.viewsandcanvas.adapter.MovieAdapter
+import com.example.viewsandcanvas.basics.PreviewContract
+import com.example.viewsandcanvas.model.MoviePreview
+import com.example.viewsandcanvas.details.DetailsActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 

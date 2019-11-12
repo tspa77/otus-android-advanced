@@ -1,9 +1,10 @@
-package com.example.a03kotlincoroutines.basics
+package com.example.viewsandcanvas.basics
 
 import android.util.Log
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.viewsandcanvas.basics.BaseView
 
 
 abstract class LoadActivity : AppCompatActivity(), BaseView {

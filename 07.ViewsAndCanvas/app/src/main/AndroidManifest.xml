@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".basics.LoadActivity"></activity>
-        <activity android:name=".details.DetailsActivity" />
-        <activity android:name=".main.MainActivity">
+        <activity android:name="com.example.viewsandcanvas.basics.LoadActivity"></activity>
+        <activity android:name="com.example.viewsandcanvas.details.DetailsActivity" />
+        <activity android:name="com.example.viewsandcanvas.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

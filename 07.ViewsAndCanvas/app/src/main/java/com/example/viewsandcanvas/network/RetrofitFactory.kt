@@ -1,6 +1,6 @@
-package com.example.a03kotlincoroutines.network
+package com.example.viewsandcanvas.network
 
-import com.example.a03kotlincoroutines.AppConstants
+import com.example.viewsandcanvas.AppConstants
 import com.example.a03kotlincoroutines.BuildConfig
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.UnstableDefault

@@ -1,7 +1,7 @@
-package com.example.a03kotlincoroutines.network
+package com.example.viewsandcanvas.network
 
-import com.example.a03kotlincoroutines.model.ListMoviePreviews
-import com.example.a03kotlincoroutines.model.MovieDetails
+import com.example.viewsandcanvas.model.ListMoviePreviews
+import com.example.viewsandcanvas.model.MovieDetails
 import retrofit2.http.GET
 import retrofit2.http.Path
 

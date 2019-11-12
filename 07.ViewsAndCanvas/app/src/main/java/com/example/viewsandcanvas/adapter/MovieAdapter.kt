@@ -1,4 +1,4 @@
-package com.example.a03kotlincoroutines.adapter
+package com.example.viewsandcanvas.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a03kotlincoroutines.AppConstants
-import com.example.a03kotlincoroutines.model.MoviePreview
+import com.example.viewsandcanvas.AppConstants
+import com.example.viewsandcanvas.model.MoviePreview
 import com.example.a03kotlincoroutines.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.card_movie_item.view.*

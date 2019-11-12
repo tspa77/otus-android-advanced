@@ -1,6 +1,6 @@
-package com.example.a03kotlincoroutines.basics
+package com.example.viewsandcanvas.basics
 
-import com.example.a03kotlincoroutines.model.MoviePreview
+import com.example.viewsandcanvas.model.MoviePreview
 
 interface PreviewContract {
 

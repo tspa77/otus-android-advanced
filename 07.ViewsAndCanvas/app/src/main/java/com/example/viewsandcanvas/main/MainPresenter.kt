@@ -1,9 +1,9 @@
-package com.example.a03kotlincoroutines.main
+package com.example.viewsandcanvas.main
 
 import android.util.Log
-import com.example.a03kotlincoroutines.AppConstants.MY_TAG
-import com.example.a03kotlincoroutines.basics.PreviewContract
-import com.example.a03kotlincoroutines.network.CoroutineNetworkProvider
+import com.example.viewsandcanvas.AppConstants.MY_TAG
+import com.example.viewsandcanvas.basics.PreviewContract
+import com.example.viewsandcanvas.network.CoroutineNetworkProvider
 
 class MainPresenter(private val viewMain: PreviewContract.ListPreviewsView<MainPresenter>) :
     PreviewContract.ListPreviewsPresenter {

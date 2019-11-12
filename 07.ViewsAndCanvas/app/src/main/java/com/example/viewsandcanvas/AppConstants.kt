@@ -1,4 +1,4 @@
-package com.example.a03kotlincoroutines
+package com.example.viewsandcanvas
 
 object AppConstants {
     val BASE_URL = "https://api.themoviedb.org/3/"

@@ -1,9 +1,9 @@
-package com.example.a03kotlincoroutines.details
+package com.example.viewsandcanvas.details
 
 import android.util.Log
-import com.example.a03kotlincoroutines.AppConstants.MY_TAG
-import com.example.a03kotlincoroutines.basics.DetailsContract
-import com.example.a03kotlincoroutines.network.CoroutineNetworkProvider
+import com.example.viewsandcanvas.AppConstants.MY_TAG
+import com.example.viewsandcanvas.basics.DetailsContract
+import com.example.viewsandcanvas.network.CoroutineNetworkProvider
 
 class DetailsPresenter(private val view: DetailsContract.BaseViewInfo<DetailsPresenter>) :
     DetailsContract.DetailsPresenter {

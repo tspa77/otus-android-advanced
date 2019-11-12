@@ -1,4 +1,4 @@
-package com.example.a03kotlincoroutines.model
+package com.example.viewsandcanvas.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
