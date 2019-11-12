@@ -16,7 +16,6 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
 
     private val paintCircle: Paint = Paint().apply {
         color = context.getColor(R.color.colorPrimary)
-        strokeWidth = 3f
     }
 
     private val fillSector = Paint().apply {

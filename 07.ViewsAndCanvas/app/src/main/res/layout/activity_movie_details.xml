@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <com.example.viewsandcanvas.customui.ImageViewTornEdges
             android:id="@+id/iv_poster"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -11,11 +11,10 @@ class ImageViewTornEdges(context: Context, attributeSet: AttributeSet) :
     private val rect = RectF()
 
     private val strokePaint = Paint().apply {
-        //        isAntiAlias = true
         color = Color.BLACK
         strokeWidth = 2f
         style = Paint.Style.FILL
-        pathEffect = DiscretePathEffect(50f, 50f)
+        pathEffect = DiscretePathEffect(5f, 20f)
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -30,13 +29,7 @@ class ImageViewTornEdges(context: Context, attributeSet: AttributeSet) :
 
         if (canvas == null) return
 
-
         canvas.drawRect(rect, strokePaint)
-
-        strokePaint.setXfermode(PorterDuffXfermode(PorterDuff.Mode.CLEAR))
-
-        canvas.drawRect(rect, strokePaint)
-
     }
 
 }
