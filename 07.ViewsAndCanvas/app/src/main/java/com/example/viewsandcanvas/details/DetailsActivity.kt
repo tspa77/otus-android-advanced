@@ -1,6 +1,7 @@
 package com.example.viewsandcanvas.details
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ProgressBar
 import com.example.viewsandcanvas.AppConstants
 import com.example.viewsandcanvas.AppConstants.MOVIE_ID
@@ -25,17 +26,20 @@ class DetailsActivity : LoadActivity(), DetailsContract.BaseViewInfo<DetailsPres
         val id = intent.getIntExtra(MOVIE_ID, 0)
         presenterInfo = DetailsPresenter(this)
         presenterInfo.loadDetailsInfo(id)
+
+        cv_vote.setOnClickListener { cv_vote.startAnimation() }
+        group_labels.visibility = View.INVISIBLE
     }
 
     override fun showDetailsInfo(movieInfo: MovieDetails) {
         tv_title.text = movieInfo.title
         tv_release_date.text = movieInfo.releaseDate
-//        tv_vote.text = movieInfo.voteAverage.toString()
         tv_popularity.text = movieInfo.popularity
         tv_overview.text = movieInfo.overview
+        cv_vote.setVote(movieInfo.voteAverage.toFloat())
         Picasso.get()
             .load(AppConstants.IMAGE_URL + movieInfo.posterPath)
             .into(iv_poster)
-        cv_vote.setVote(movieInfo.voteAverage.toFloat())
+        group_labels.visibility = View.VISIBLE
     }
 }

@@ -18,39 +18,40 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_poster"
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/iv_poster"
-            app:layout_constraintEnd_toStartOf="@+id/tv_release_date_lbl"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:cropToPadding="true"
+            android:fadeScrollbars="false"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/poster" />
 
         <TextView
             android:id="@+id/tv_release_date_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/tv_release_date_lbl"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_release_date"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iv_poster"
-            app:layout_constraintTop_toTopOf="@+id/iv_poster"
-            tools:text="Release Date" />
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/tv_release_date_lbl" />
 
         <TextView
             android:id="@+id/tv_release_date"
@@ -76,7 +77,7 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_release_date"
             app:layout_constraintStart_toStartOf="@+id/tv_release_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_release_date"
-            tools:text="Popularity" />
+            tools:text="@string/tv_popularity_lbl" />
 
         <TextView
             android:id="@+id/tv_popularity"
@@ -102,19 +103,18 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_popularity"
             app:layout_constraintStart_toStartOf="@+id/tv_popularity"
             app:layout_constraintTop_toBottomOf="@+id/tv_popularity"
-            tools:text="Vote" />
+            tools:text="@string/tv_vote_lbl" />
 
 
         <com.example.viewsandcanvas.customui.Vote
             android:id="@+id/cv_vote"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/iv_poster"
             app:layout_constraintEnd_toEndOf="@+id/tv_vote_lbl"
             app:layout_constraintStart_toStartOf="@+id/tv_vote_lbl"
-            app:layout_constraintTop_toBottomOf="@+id/tv_vote_lbl">
-
-        </com.example.viewsandcanvas.customui.Vote>
+            app:layout_constraintTop_toBottomOf="@+id/tv_vote_lbl" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -132,33 +132,33 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_poster"
             tools:text="Title" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_vote"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/cv_vote"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/cv_vote"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/cv_vote"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/cv_vote"-->
-<!--            tools:text="9.9" />-->
 
         <TextView
             android:id="@+id/tv_overview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="@tools:sample/lorem/random" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".6" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_labels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="cv_vote,tv_popularity_lbl,tv_release_date_lbl,tv_vote_lbl" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
