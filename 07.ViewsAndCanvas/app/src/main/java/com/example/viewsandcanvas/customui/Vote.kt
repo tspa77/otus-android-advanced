@@ -14,17 +14,20 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
     private val circle = RectF()
     private var sweepAngle = 0f
 
-    private val paintCircle: Paint = Paint().apply {
+    private val paintCircle = Paint().apply {
+        isAntiAlias = true
         color = context.getColor(R.color.colorPrimary)
     }
 
     private val fillSector = Paint().apply {
+        isAntiAlias = true
         color = context.getColor(R.color.colorPrimaryDark)
         strokeWidth = 1f
         style = Paint.Style.FILL
     }
 
-    private val paintText: Paint = Paint().apply {
+    private val paintText = Paint().apply {
+        isAntiAlias = true
         color = context.getColor(R.color.cardview_light_background)
         textAlign = Paint.Align.CENTER
         textSize = 60f

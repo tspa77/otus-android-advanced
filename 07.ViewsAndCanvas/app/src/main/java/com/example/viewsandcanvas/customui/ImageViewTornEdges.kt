@@ -2,34 +2,41 @@ package com.example.viewsandcanvas.customui
 
 import android.content.Context
 import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
 import android.util.AttributeSet
 import android.widget.ImageView
+import kotlin.math.roundToInt
+
 
 class ImageViewTornEdges(context: Context, attributeSet: AttributeSet) :
     ImageView(context, attributeSet) {
 
-    private val rect = RectF()
-
-    private val strokePaint = Paint().apply {
-        color = Color.BLACK
-        strokeWidth = 2f
-        style = Paint.Style.FILL
-        pathEffect = DiscretePathEffect(5f, 20f)
-    }
-
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-        super.onLayout(changed, left, top, right, bottom)
-
-        rect.bottom = height.toFloat()
-        rect.right = width.toFloat()
-    }
-
     override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-
-        if (canvas == null) return
-
-        canvas.drawRect(rect, strokePaint)
+        if (canvas == null || drawable == null) return
+        drawRoundImage(canvas)
     }
 
+    private fun drawRoundImage(canvas: Canvas) {
+        val b = (drawable as BitmapDrawable).bitmap
+        val bitmap = b.copy(Bitmap.Config.ARGB_8888, true)
+
+        // Scale the bitmap
+        val ratio = bitmap.width.toFloat() / bitmap.height.toFloat()
+        val height = (width / ratio).roundToInt()
+        val scaledBitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
+
+        // Cutting the outer
+        val shader = BitmapShader(scaledBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+
+        val rect = RectF()
+        rect.set(0f, 0f, width.toFloat(), height.toFloat())
+
+        val imagePaint = Paint().apply {
+            isAntiAlias = true
+            this.shader = shader
+            pathEffect = DiscretePathEffect(10f, 20f)
+        }
+
+        canvas.drawRect(rect, imagePaint)
+    }
 }
