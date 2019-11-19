@@ -10,6 +10,7 @@ class DetailsPresenter(private val view: DetailsContract.BaseViewInfo<DetailsPre
 
     private val networkProvider = CoroutineNetworkProvider
 
+    @kotlinx.serialization.UnstableDefault
     override fun loadDetailsInfo(id: Int) {
         view.showLoading()
         networkProvider.getDetailsInfo(id, {
@@ -18,7 +19,7 @@ class DetailsPresenter(private val view: DetailsContract.BaseViewInfo<DetailsPre
         }, {
             view.hideLoading()
             Log.d(MY_TAG, it.stackTrace.joinToString("\n"))
-            view.showError(it.localizedMessage)
+            view.showError(it.localizedMessage!!)
         })
     }
 }

@@ -10,6 +10,7 @@ class MainPresenter(private val viewMain: PreviewContract.ListPreviewsView<MainP
 
     private val networkProvider = CoroutineNetworkProvider
 
+    @kotlinx.serialization.UnstableDefault
     override fun loadListPreviews() {
         viewMain.showLoading()
         networkProvider.getListPreviews({
@@ -18,7 +19,7 @@ class MainPresenter(private val viewMain: PreviewContract.ListPreviewsView<MainP
         }, {
             viewMain.hideLoading()
             Log.d(MY_TAG, it.stackTrace.joinToString("\n"))
-            viewMain.showError(it.localizedMessage)
+            viewMain.showError(it.localizedMessage!!)
         })
     }
 }

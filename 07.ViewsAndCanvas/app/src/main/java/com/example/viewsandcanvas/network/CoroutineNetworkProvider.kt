@@ -8,8 +8,10 @@ import kotlinx.coroutines.launch
 
 object CoroutineNetworkProvider : NetworkProvider {
 
+    @kotlinx.serialization.UnstableDefault
     private val api = RetrofitFactory.getMovieService()
 
+    @kotlinx.serialization.UnstableDefault
     override fun getListPreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
@@ -20,6 +22,7 @@ object CoroutineNetworkProvider : NetworkProvider {
         }
     }
 
+    @kotlinx.serialization.UnstableDefault
     override fun getDetailsInfo(
         id: Int,
         onDone: (MovieDetails) -> Unit,

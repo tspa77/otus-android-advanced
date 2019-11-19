@@ -23,6 +23,7 @@ class MainActivity : LoadActivity(),
     override val progressBar: ProgressBar
         get() = findViewById(R.id.progress_bar)
 
+    @kotlinx.serialization.UnstableDefault
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
