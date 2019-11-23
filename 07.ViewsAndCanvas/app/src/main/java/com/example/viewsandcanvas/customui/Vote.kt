@@ -1,6 +1,5 @@
 package com.example.viewsandcanvas.customui
 
-import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
@@ -9,7 +8,8 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import com.example.a03kotlincoroutines.R
-import com.example.viewsandcanvas.AppConstants.CIRLCE_VOTE_ANIMATION_DURATION
+import com.example.viewsandcanvas.AppConstants.CIRCLE_VOTE_ANIMATION_DURATION
+
 
 class Vote(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
     private var vote: Float = 0f
@@ -45,19 +45,27 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
 
     fun startAnimation() {
         val sweepAngleBoundary = 360 / 10 * vote
-        val propertySweepAngle = "sweepAngle"
-        val propertyValuesHolder = PropertyValuesHolder.ofFloat(
-            propertySweepAngle, 0f, sweepAngleBoundary
-        )
-        val valueAnimator = ValueAnimator.ofPropertyValuesHolder(propertyValuesHolder)
-            .apply {
-                duration = CIRLCE_VOTE_ANIMATION_DURATION
-                addUpdateListener {
-                    sweepAngle = it.getAnimatedValue(propertySweepAngle) as Float
-                    invalidate()
-                }
+        val valueAnimator = ValueAnimator.ofFloat(0f, sweepAngleBoundary)
+//        val propertySweepAngle = "sweepAngle"
+//        val propertyValuesHolder = PropertyValuesHolder.ofFloat(
+//            propertySweepAngle, 0f, sweepAngleBoundary
+//        )
+//        val valueAnimator = ValueAnimator.ofPropertyValuesHolder(propertyValuesHolder)
+//            .apply {
+//                duration = CIRCLE_VOTE_ANIMATION_DURATION
+//                addUpdateListener {
+//                    sweepAngle = it.getAnimatedValue(propertySweepAngle) as Float
+//                    invalidate()
+//                }
+//            }
+        valueAnimator.apply {
+            duration = CIRCLE_VOTE_ANIMATION_DURATION
+            addUpdateListener {
+                sweepAngle = it.animatedValue as Float
+                invalidate()
             }
-        valueAnimator.start()
+            start()
+        }
     }
 
     override fun onDraw(canvas: Canvas?) {

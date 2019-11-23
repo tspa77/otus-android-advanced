@@ -25,7 +25,7 @@ object RetrofitFactory {
     private val authInterceptor = Interceptor { chain ->
         val newUrl = chain.request().url
             .newBuilder()
-            .addQueryParameter("api_key", AppConstants.tmdbApiKey)
+            .addQueryParameter("api_key", AppConstants.TMDB_API_KEY)
             .build()
         val newRequest = chain.request()
             .newBuilder()
