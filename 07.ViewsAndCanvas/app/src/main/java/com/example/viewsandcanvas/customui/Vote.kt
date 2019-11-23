@@ -3,11 +3,13 @@ package com.example.viewsandcanvas.customui
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.RectF
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import com.example.a03kotlincoroutines.R
+import com.example.viewsandcanvas.AppConstants.CIRLCE_VOTE_ANIMATION_DURATION
 
 class Vote(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
     private var vote: Float = 0f
@@ -49,7 +51,7 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
         )
         val valueAnimator = ValueAnimator.ofPropertyValuesHolder(propertyValuesHolder)
             .apply {
-                duration = 750
+                duration = CIRLCE_VOTE_ANIMATION_DURATION
                 addUpdateListener {
                     sweepAngle = it.getAnimatedValue(propertySweepAngle) as Float
                     invalidate()
