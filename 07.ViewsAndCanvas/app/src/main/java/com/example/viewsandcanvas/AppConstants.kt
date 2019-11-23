@@ -9,6 +9,8 @@ object AppConstants {
     // ui
     const val CIRCLE_VOTE_ANIMATION_DURATION = 750L
     const val CIRCLE_VOTE_TEXT_RATIO = 2.25F
+    const val TORN_EDGES_SEGMENT_LENGTH = 10F
+    const val TORN_EDGES_DEVIATION = 20F
     // other
     const val MY_TAG = "My Tag"
 }
