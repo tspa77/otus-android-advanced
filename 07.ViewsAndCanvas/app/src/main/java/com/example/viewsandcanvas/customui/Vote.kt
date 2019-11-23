@@ -4,11 +4,13 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Rect
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
-import com.example.a03kotlincoroutines.R
 import com.example.viewsandcanvas.AppConstants.CIRCLE_VOTE_ANIMATION_DURATION
+import com.example.viewsandcanvas.AppConstants.CIRCLE_VOTE_TEXT_RATIO
+import com.example.viewsandcanvas.R
 
 
 class Vote(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
@@ -17,6 +19,7 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
     private var sweepAngle = 0f
     private var midHeight = 0f
     private var midWidth = 0f
+    private var textWidthGuideline = 0f
 
 
     private val paintCircle = Paint().apply {
@@ -35,7 +38,18 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
         isAntiAlias = true
         color = context.getColor(R.color.cardview_light_background)
         textAlign = Paint.Align.CENTER
-        textSize = 60f
+    }
+
+    // Определяет центр текста. Там не всё так просто...
+    // Оказывается, графически/визуально, середина текста это не половина его высоты  ¯\_(ツ)_/¯
+    // https://proandroiddev.com/expounding-android-canvas-drawtext-bae3d4fabc5a
+    // https://stackoverflow.com/questions/7549182/android-paint-measuretext-vs-gettextbounds/57288746#57288746
+    // Но в моём случае, где текст это только цифры, вполне бы хватило моей магической тройки,
+    // которую я получил эмпирически :) Но всё же вот метод
+    private fun getTextHeight(paint: Paint): Int {
+        val bounds = Rect()
+        paint.getTextBounds(vote.toString(), 0, 1, bounds)
+        return bounds.bottom + bounds.height()
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -45,6 +59,10 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
         circle.right = width.toFloat()
         midHeight = height / 2f
         midWidth = width / 2f
+
+        // set text parameters
+        paintText.textSize = circle.bottom / CIRCLE_VOTE_TEXT_RATIO
+        textWidthGuideline = midWidth + getTextHeight(paintText) / 2f
     }
 
 
@@ -81,10 +99,8 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
         canvas.run {
             drawCircle(midWidth, midHeight, midHeight, paintCircle)
             drawArc(circle, -90f, sweepAngle, true, fillSector)
-            drawText(vote.toString(), midWidth, midHeight + paintText.textSize / 3, paintText)
+            drawText(vote.toString(), midWidth, textWidthGuideline, paintText)
         }
-        // Магическая тройка ¯\_(ツ)_/¯ - думал для того, чтобы отцентровать текст по вертикали
-        // нужно пополам высоту его разделить, но не вышло. Путём подбора пришёл к тройке :(
     }
 
 

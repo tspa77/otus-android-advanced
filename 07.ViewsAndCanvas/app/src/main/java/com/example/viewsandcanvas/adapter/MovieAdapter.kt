@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.viewsandcanvas.AppConstants
 import com.example.viewsandcanvas.model.MoviePreview
-import com.example.a03kotlincoroutines.R
+import com.example.viewsandcanvas.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.card_movie_item.view.*
 

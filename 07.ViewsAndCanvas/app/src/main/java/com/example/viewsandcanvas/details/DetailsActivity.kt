@@ -5,10 +5,9 @@ import android.view.View
 import android.widget.ProgressBar
 import com.example.viewsandcanvas.AppConstants
 import com.example.viewsandcanvas.AppConstants.MOVIE_ID
-import com.example.viewsandcanvas.basics.LoadActivity
-import com.example.a03kotlincoroutines.R
+import com.example.viewsandcanvas.R
 import com.example.viewsandcanvas.basics.DetailsContract
-import com.example.viewsandcanvas.customui.ImageViewTornEdges
+import com.example.viewsandcanvas.basics.LoadActivity
 import com.example.viewsandcanvas.model.MovieDetails
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*

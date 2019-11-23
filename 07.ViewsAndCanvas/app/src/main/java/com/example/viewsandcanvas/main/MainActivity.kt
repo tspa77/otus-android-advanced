@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.viewsandcanvas.AppConstants.MOVIE_ID
-import com.example.viewsandcanvas.basics.LoadActivity
-import com.example.a03kotlincoroutines.R
+import com.example.viewsandcanvas.R
 import com.example.viewsandcanvas.adapter.MovieAdapter
+import com.example.viewsandcanvas.basics.LoadActivity
 import com.example.viewsandcanvas.basics.PreviewContract
-import com.example.viewsandcanvas.model.MoviePreview
 import com.example.viewsandcanvas.details.DetailsActivity
+import com.example.viewsandcanvas.model.MoviePreview
 import kotlinx.android.synthetic.main.activity_main.*
 
 
