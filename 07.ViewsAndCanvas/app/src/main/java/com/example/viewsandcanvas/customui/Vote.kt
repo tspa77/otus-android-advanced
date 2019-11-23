@@ -15,6 +15,9 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
     private var vote: Float = 0f
     private val circle = RectF()
     private var sweepAngle = 0f
+    private var midHeight = 0f
+    private var midWidth = 0f
+
 
     private val paintCircle = Paint().apply {
         isAntiAlias = true
@@ -40,6 +43,8 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
 
         circle.bottom = height.toFloat()
         circle.right = width.toFloat()
+        midHeight = height / 2f
+        midWidth = width / 2f
     }
 
 
@@ -72,9 +77,6 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
         super.dispatchDraw(canvas)
 
         if (canvas == null) return
-
-        val midHeight = height / 2f
-        val midWidth = width / 2f
 
         canvas.run {
             drawCircle(midWidth, midHeight, midHeight, paintCircle)
