@@ -54,11 +54,15 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
+    }
 
-        circle.bottom = height.toFloat()
-        circle.right = width.toFloat()
-        midHeight = height / 2f
-        midWidth = width / 2f
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+
+        circle.bottom = h.toFloat()
+        circle.right = w.toFloat()
+        midHeight = h / 2f
+        midWidth = w / 2f
 
         // set text parameters
         paintText.textSize = circle.bottom / CIRCLE_VOTE_TEXT_RATIO
