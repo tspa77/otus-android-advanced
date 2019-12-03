@@ -66,7 +66,14 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
 
         // set text parameters
         paintText.textSize = circle.bottom / CIRCLE_VOTE_TEXT_RATIO
-        textWidthGuideline = midWidth + getTextHeight(paintText) / 2f
+
+        // Тут было так сначала, через отдельный метод, расчёт через границы фигуры:
+        // textWidthGuideline = midWidth + getTextHeight(paintText) / 2f
+
+        // А потом посмотрел мастер-класс от SkillBranch, оказывается не нужно методов костыльных
+        // городить т.к. у пэйнта можно нормально получить границы текста и расчитать смещение
+        val offsetY = (paintText.descent() + paintText.ascent()) / 2
+        textWidthGuideline = midWidth - offsetY
     }
 
 
