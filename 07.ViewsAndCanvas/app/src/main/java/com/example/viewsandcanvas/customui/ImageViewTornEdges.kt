@@ -5,13 +5,16 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.util.AttributeSet
 import android.widget.ImageView
-import com.example.viewsandcanvas.AppConstants.TORN_EDGES_DEVIATION
-import com.example.viewsandcanvas.AppConstants.TORN_EDGES_SEGMENT_LENGTH
 import kotlin.math.roundToInt
 
 
 class ImageViewTornEdges(context: Context, attributeSet: AttributeSet) :
     ImageView(context, attributeSet) {
+
+    companion object {
+        const val TORN_EDGES_SEGMENT_LENGTH = 10F
+        const val TORN_EDGES_DEVIATION = 20F
+    }
 
     override fun onDraw(canvas: Canvas?) {
         if (canvas == null || drawable == null) return
@@ -36,9 +39,11 @@ class ImageViewTornEdges(context: Context, attributeSet: AttributeSet) :
         val imagePaint = Paint().apply {
             isAntiAlias = true
             this.shader = shader
-            pathEffect = DiscretePathEffect(TORN_EDGES_SEGMENT_LENGTH, TORN_EDGES_DEVIATION)
+            pathEffect = DiscretePathEffect(
+                Companion.TORN_EDGES_SEGMENT_LENGTH,
+                Companion.TORN_EDGES_DEVIATION
+            )
         }
-
         canvas.drawRect(rect, imagePaint)
     }
 }
