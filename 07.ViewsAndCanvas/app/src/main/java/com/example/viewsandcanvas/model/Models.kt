@@ -36,5 +36,6 @@ data class MovieDetails(
 
 @Serializable
 data class ListMoviePreviews(
+    @SerialName("results")
     val results: List<MoviePreview>
 )

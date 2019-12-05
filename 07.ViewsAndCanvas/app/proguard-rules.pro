@@ -34,4 +34,14 @@
 # - 35 unresolved references to classes or interfaces.
  -dontwarn okhttp3.**
 
-
+# Kotlin cross-platform / multi-format reflectionless serialization
+# https://github.com/Kotlin/kotlinx.serialization
+# -keepattributes *Annotation*, InnerClasses
+# -dontnote kotlinx.serialization.SerializationKt
+ -keep,includedescriptorclasses class com.example.viewsandcanvas.**$$serializer { *; } # <-- change package name to your app's
+# -keepclassmembers class com.example.viewsandcanvas.** { # <-- change package name to your app's
+#    *** Companion;
+#}
+#-keepclasseswithmembers class com.example.viewsandcanvas.** { # <-- change package name to your app's
+#    kotlinx.serialization.KSerializer serializer(...);
+#}
