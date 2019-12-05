@@ -29,10 +29,12 @@
 # - 52 unresolved references to program class members.
  -dontwarn kotlinx.coroutines.flow.**inlined**
 
+
 ## okhttp
 # https://github.com/square/okhttp/blob/5fe3cc2d089810032671d6135ad137af6f491d28/README.md##proguard
 # - 35 unresolved references to classes or interfaces.
  -dontwarn okhttp3.**
+
 
 # Kotlin cross-platform / multi-format reflectionless serialization
 # https://github.com/Kotlin/kotlinx.serialization
@@ -45,3 +47,13 @@
 #-keepclasseswithmembers class com.example.viewsandcanvas.** { # <-- change package name to your app's
 #    kotlinx.serialization.KSerializer serializer(...);
 #}
+
+
+#Removing logging
+-assumenosideeffects class android.util.Log {
+    public static *** v(...);
+    public static *** d(...);
+    public static *** i(...);
+    public static *** w(...);
+    public static *** e(...);
+  }

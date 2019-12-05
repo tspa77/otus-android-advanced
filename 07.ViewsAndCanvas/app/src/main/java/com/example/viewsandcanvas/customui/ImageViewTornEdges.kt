@@ -40,8 +40,8 @@ class ImageViewTornEdges(context: Context, attributeSet: AttributeSet) :
             isAntiAlias = true
             this.shader = shader
             pathEffect = DiscretePathEffect(
-                Companion.TORN_EDGES_SEGMENT_LENGTH,
-                Companion.TORN_EDGES_DEVIATION
+                TORN_EDGES_SEGMENT_LENGTH,
+                TORN_EDGES_DEVIATION
             )
         }
         canvas.drawRect(rect, imagePaint)
