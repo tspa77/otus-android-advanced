@@ -24,31 +24,88 @@
             android:hint="Enter text here" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/tv_encrypted"
-        android:layout_width="0dp"
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="encrypted"
-        app:layout_constraintEnd_toStartOf="@+id/tv_decrypted"
+        android:layout_marginTop="188dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="cv_encrypted,cv_decrypted"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_encrypted"
+        style="@style/MyCardViewStyle"
+        app:layout_constraintEnd_toStartOf="@+id/cv_decrypted"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_plain_text" />
+        app:layout_constraintTop_toBottomOf="@+id/til_plain_text">
 
-    <TextView
-        android:id="@+id/tv_decrypted"
+        <TextView
+            android:id="@+id/tv_encrypted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="encrypted" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_decrypted"
+        style="@style/MyCardViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cv_encrypted"
+        app:layout_constraintTop_toBottomOf="@+id/til_plain_text">
+
+        <TextView
+            android:id="@+id/tv_decrypted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="decrypted" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_save_sp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="decrypted"
+        android:text="Save SP"
+        app:layout_constraintEnd_toStartOf="@+id/btn_load_sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier1" />
+
+    <Button
+        android:id="@+id/btn_load_sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Load SP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_encrypted"
-        app:layout_constraintTop_toBottomOf="@+id/til_plain_text" />
+        app:layout_constraintStart_toEndOf="@+id/btn_save_sp"
+        app:layout_constraintTop_toBottomOf="@+id/barrier1" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_shared_prefences"
+        style="@style/MyCardViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_save_sp">
+
+        <TextView
+            android:id="@+id/tv_sp_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data from Shared Preferences" />
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
