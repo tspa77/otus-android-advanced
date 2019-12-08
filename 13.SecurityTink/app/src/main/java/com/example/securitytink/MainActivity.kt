@@ -7,22 +7,21 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var coder: Coder
+    private lateinit var tinkApp: TinkApplication
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        coder = Coder(applicationContext)
+        tinkApp = applicationContext as TinkApplication
 
         et_plain_text.doAfterTextChanged { codingString(it.toString()) }
     }
 
-
     private fun codingString(text: String?) {
         if (!text.isNullOrEmpty()) {
-            tv_encrypted.text = coder.attemptEncrypt(text)
-            tv_decrypted.text = coder.attemptDecrypt(tv_encrypted.text.toString())
+            tv_encrypted.text = tinkApp.attemptEncrypt(text)
+            tv_decrypted.text = tinkApp.attemptDecrypt(tv_encrypted.text.toString())
         } else {
             tv_encrypted.text = ""
             tv_decrypted.text = ""
