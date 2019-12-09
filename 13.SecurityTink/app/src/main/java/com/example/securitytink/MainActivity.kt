@@ -18,21 +18,37 @@ class MainActivity : AppCompatActivity() {
         tinkApp = applicationContext as TinkApplication
 
         et_plain_text.doAfterTextChanged { codingString(it.toString()) }
-        btn_save_sp.setOnClickListener { saveSP(et_plain_text.text.toString()) }
-        btn_load_sp.setOnClickListener { loadSP() }
+        btn_save_sp.setOnClickListener { writeSP(et_plain_text.text.toString()) }
+        btn_load_sp.setOnClickListener { readSP() }
+        btn_save_file.setOnClickListener { saveFile(et_plain_text.text.toString()) }
+        btn_load_file.setOnClickListener { readFile() }
     }
 
-    private fun saveSP(text: String?) {
-        tinkApp.saveSP(text ?: "")
+    private fun writeSP(text: String?) {
+        tinkApp.writeSP(text ?: "")
         Toast.makeText(this, "String saved to Shared Preferences", Toast.LENGTH_SHORT)
             .show()
     }
 
-    private fun loadSP() {
-        tv_sp_key.text = tinkApp.loadSP()
+    private fun readSP() {
+        tv_sp_key.text = tinkApp.readSP()
         Toast.makeText(this, "String loaded from Shared Preferences", Toast.LENGTH_SHORT)
             .show()
     }
+
+    private fun saveFile(text: String?) {
+        tinkApp.writeFile(text ?: "")
+        Toast.makeText(this, "String saved to Shared Preferences", Toast.LENGTH_SHORT)
+            .show()
+    }
+
+    private fun readFile(){
+        tv_file.text=tinkApp.readFile()
+        Toast.makeText(this, "String saved to Shared Preferences", Toast.LENGTH_SHORT)
+            .show()
+    }
+
+
 
     private fun codingString(text: String?) {
         tv_encrypted.text = tinkApp.encryptString(text ?: "")
