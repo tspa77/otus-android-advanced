@@ -11,8 +11,6 @@ import com.google.crypto.tink.aead.AeadKeyTemplates
 import com.google.crypto.tink.config.TinkConfig
 import com.google.crypto.tink.integration.android.AndroidKeysetManager
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.nio.charset.StandardCharsets
 
 
@@ -27,6 +25,8 @@ class TinkApplication : Application() {
     private lateinit var mySharedPreferences: SharedPreferences
     private lateinit var encryptedFile: EncryptedFile
     private lateinit var aead: Aead
+    private lateinit var masterKeyAlias: String
+    private lateinit var file: File
 
 
     override fun onCreate() {
@@ -35,20 +35,19 @@ class TinkApplication : Application() {
         TinkConfig.register()
         aead = getOrGenerateNewKeysetHandle().getPrimitive(Aead::class.java)
 
-        val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+        masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
         mySharedPreferences = EncryptedSharedPreferences.create(
             PREF_FILE_NAME,
             masterKeyAlias,
             applicationContext,
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV, //for encrypting Keys
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM ////for encrypting Values
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM //for encrypting Values
         )
 
-        val context = applicationContext
-        val file = File(context.filesDir, TINK_FILE_NAME)
+        file = File(applicationContext.filesDir, TINK_FILE_NAME)
         encryptedFile = EncryptedFile.Builder(
             file,
-            context,
+            applicationContext,
             masterKeyAlias,
             EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
         ).build()
@@ -65,6 +64,8 @@ class TinkApplication : Application() {
         .build()
         .keysetHandle
 
+    private fun base64Encode(input: ByteArray) = Base64.encodeToString(input, Base64.DEFAULT)
+    private fun base64Decode(input: String) = Base64.decode(input, Base64.DEFAULT)
 
     fun encryptString(text: String): String {
         val plainText = text.toByteArray(StandardCharsets.UTF_8)
@@ -78,6 +79,7 @@ class TinkApplication : Application() {
         return String(plainText, StandardCharsets.UTF_8)
     }
 
+
     fun writeSP(text: String) =
         mySharedPreferences.edit()
             .putString(PREF_KEY, text)
@@ -89,30 +91,22 @@ class TinkApplication : Application() {
 
 
     fun writeFile(text: String) {
-        val cipherStream = base64Decode(text)
-        val encryptedOutputStream = encryptedFile.openFileOutput()
-
-        encryptedOutputStream.use {
-            it.write(cipherStream)
+        file.let {
+            if (it.exists()) {
+                it.delete()
+            }
         }
 
-//        cipherStream.use {
-//            it.copyTo(encryptedOutputStream)
-//        }
+        encryptedFile.openFileOutput().use { output ->
+            output.write(text.toByteArray())
+        }
     }
 
     fun readFile(): String {
-        val encryptedInputStream = encryptedFile.openFileInput()
-
-        val ba = encryptedInputStream.use {
-            it.readBytes()
+        encryptedFile.openFileInput().use { input ->
+            return String(input.readBytes(), Charsets.UTF_8)
         }
-
-
-        return base64Encode(ba) ?: ""
     }
 
 
-    private fun base64Encode(input: ByteArray) = Base64.encodeToString(input, Base64.DEFAULT)
-    private fun base64Decode(input: String) = Base64.decode(input, Base64.DEFAULT)
 }
