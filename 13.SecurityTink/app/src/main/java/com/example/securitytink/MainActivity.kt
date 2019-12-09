@@ -40,13 +40,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun saveFile(text: String?) {
         tinkApp.writeFile(text ?: "")
-        Toast.makeText(this, "String saved to Shared Preferences", Toast.LENGTH_SHORT)
+        Toast.makeText(this, "String saved to file", Toast.LENGTH_SHORT)
             .show()
     }
 
     private fun readFile(){
         tv_file.text=tinkApp.readFile()
-        Toast.makeText(this, "String saved to Shared Preferences", Toast.LENGTH_SHORT)
+        Toast.makeText(this, "String loaded from file", Toast.LENGTH_SHORT)
             .show()
     }
 

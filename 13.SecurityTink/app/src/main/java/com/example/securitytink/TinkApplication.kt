@@ -45,6 +45,7 @@ class TinkApplication : Application() {
         )
 
         file = File(applicationContext.filesDir, TINK_FILE_NAME)
+
         encryptedFile = EncryptedFile.Builder(
             file,
             applicationContext,
@@ -65,6 +66,7 @@ class TinkApplication : Application() {
         .keysetHandle
 
     private fun base64Encode(input: ByteArray) = Base64.encodeToString(input, Base64.DEFAULT)
+
     private fun base64Decode(input: String) = Base64.decode(input, Base64.DEFAULT)
 
     fun encryptString(text: String): String {
@@ -79,12 +81,10 @@ class TinkApplication : Application() {
         return String(plainText, StandardCharsets.UTF_8)
     }
 
-
     fun writeSP(text: String) =
         mySharedPreferences.edit()
             .putString(PREF_KEY, text)
             .apply()
-
 
     fun readSP(): String =
         mySharedPreferences.getString(PREF_KEY, "")!!
@@ -103,10 +103,14 @@ class TinkApplication : Application() {
     }
 
     fun readFile(): String {
+        file.let {
+            if (!it.exists()) {
+                return ""
+            }
+        }
+
         encryptedFile.openFileInput().use { input ->
             return String(input.readBytes(), Charsets.UTF_8)
         }
     }
-
-
 }
