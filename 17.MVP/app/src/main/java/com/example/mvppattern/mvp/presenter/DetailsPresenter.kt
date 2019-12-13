@@ -1,19 +1,20 @@
-package com.example.mvppattern.details
+package com.example.mvppattern.mvp.presenter
 
 import android.util.Log
 import com.example.mvppattern.AppConstants.MY_LOG_TAG
-import com.example.mvppattern.basics.DetailsContract
-import com.example.mvppattern.network.CoroutineNetworkProvider
+import com.example.mvppattern.contracts.DetailsContract
+import com.example.mvppattern.mvp.model.Repository
+import kotlinx.serialization.UnstableDefault
 
+@UnstableDefault
 class DetailsPresenter(private val view: DetailsContract.BaseViewInfo<DetailsPresenter>) :
     DetailsContract.DetailsPresenter {
 
-    private val networkProvider = CoroutineNetworkProvider
+    private val repository = Repository
 
-    @kotlinx.serialization.UnstableDefault
     override fun loadDetailsInfo(id: Int) {
         view.showLoading()
-        networkProvider.getDetailsInfo(id, {
+        repository.getDetailsInfo(id, {
             view.hideLoading()
             view.showDetailsInfo(it)
             Log.d(MY_LOG_TAG, it.toString())

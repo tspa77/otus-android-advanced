@@ -1,4 +1,4 @@
-package com.example.mvppattern.model
+package com.example.mvppattern.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

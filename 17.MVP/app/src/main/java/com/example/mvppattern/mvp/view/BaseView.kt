@@ -1,4 +1,4 @@
-package com.example.mvppattern.basics
+package com.example.mvppattern.mvp.view
 
 interface BaseView {
 

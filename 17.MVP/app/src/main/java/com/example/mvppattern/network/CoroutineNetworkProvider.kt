@@ -1,7 +1,7 @@
 package com.example.mvppattern.network
 
-import com.example.mvppattern.model.MovieDetails
-import com.example.mvppattern.model.MoviePreview
+import com.example.mvppattern.data.MovieDetails
+import com.example.mvppattern.data.MoviePreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,7 +12,7 @@ object CoroutineNetworkProvider : NetworkProvider {
     private val api = RetrofitFactory.getMovieService()
 
     @kotlinx.serialization.UnstableDefault
-    override fun getListPreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit) {
+    override fun downloadListPreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
                 onDone(api.getListPopularMovies().results)
@@ -23,7 +23,7 @@ object CoroutineNetworkProvider : NetworkProvider {
     }
 
     @kotlinx.serialization.UnstableDefault
-    override fun getDetailsInfo(
+    override fun downloadDetailsInfo(
         id: Int,
         onDone: (MovieDetails) -> Unit,
         onError: (Throwable) -> Unit

@@ -1,4 +1,4 @@
-package com.example.mvppattern.main
+package com.example.mvppattern.mvp.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.adapter.MovieAdapter
-import com.example.mvppattern.basics.LoadActivity
-import com.example.mvppattern.basics.PreviewContract
-import com.example.mvppattern.details.DetailsActivity
-import com.example.mvppattern.model.MoviePreview
+import com.example.mvppattern.contracts.PreviewContract
+import com.example.mvppattern.data.MoviePreview
+import com.example.mvppattern.mvp.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
 

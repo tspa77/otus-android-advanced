@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context="com.example.mvppattern.details.DetailsActivity">
+    tools:context="com.example.mvppattern.mvp.view.DetailsActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
