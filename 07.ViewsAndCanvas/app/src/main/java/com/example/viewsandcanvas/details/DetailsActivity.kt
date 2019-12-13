@@ -1,6 +1,7 @@
 package com.example.viewsandcanvas.details
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import com.example.viewsandcanvas.AppConstants
