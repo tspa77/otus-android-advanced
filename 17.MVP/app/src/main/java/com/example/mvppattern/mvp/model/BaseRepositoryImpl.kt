@@ -7,7 +7,7 @@ import com.example.mvppattern.data.MoviePreview
 import com.example.mvppattern.network.CoroutineNetworkProvider
 
 @kotlinx.serialization.UnstableDefault
-object Repository : BaseRepository {
+object BaseRepositoryImpl : BaseRepository {
 
     private val networkProvider = CoroutineNetworkProvider
 

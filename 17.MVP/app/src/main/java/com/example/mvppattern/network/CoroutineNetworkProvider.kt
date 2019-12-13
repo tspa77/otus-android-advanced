@@ -12,7 +12,10 @@ object CoroutineNetworkProvider : NetworkProvider {
     private val api = RetrofitFactory.getMovieService()
 
     @kotlinx.serialization.UnstableDefault
-    override fun downloadListPreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit) {
+    override fun downloadListPreviews(
+        onDone: (List<MoviePreview>) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
                 onDone(api.getListPopularMovies().results)

@@ -6,15 +6,14 @@ import android.widget.ProgressBar
 import com.example.mvppattern.AppConstants
 import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
-import com.example.mvppattern.contracts.DetailsContract
 import com.example.mvppattern.data.MovieDetails
-import com.example.mvppattern.mvp.presenter.DetailsPresenter
+import com.example.mvppattern.mvp.presenter.DetailsPresenterImpl
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*
 
-class DetailsActivity : LoadActivity(), DetailsContract.BaseViewInfo<DetailsPresenter> {
+class DetailsViewViewActivity : LoadViewActivity(), DetailsView {
 
-    private lateinit var presenterInfo: DetailsPresenter
+    private lateinit var presenterInfo: DetailsPresenterImpl
 
     override val progressBar: ProgressBar
         get() = findViewById(R.id.progress_bar)
@@ -26,7 +25,7 @@ class DetailsActivity : LoadActivity(), DetailsContract.BaseViewInfo<DetailsPres
 
         val id = intent.getIntExtra(MOVIE_ID, 0)
         presenterInfo =
-            DetailsPresenter(this)
+            DetailsPresenterImpl(this)
         presenterInfo.loadDetailsInfo(id)
 
         cv_vote.setOnClickListener { cv_vote.startAnimation() }

@@ -4,13 +4,11 @@ import android.util.Log
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mvppattern.mvp.view.BaseView
 
 
-abstract class LoadActivity : AppCompatActivity(),
-    BaseView {
+abstract class LoadViewActivity : AppCompatActivity(), LoadView {
 
-    abstract val progressBar :ProgressBar
+    abstract val progressBar: ProgressBar
 
     override fun showLoading() {
         Log.d("MY_TAG", "loading")

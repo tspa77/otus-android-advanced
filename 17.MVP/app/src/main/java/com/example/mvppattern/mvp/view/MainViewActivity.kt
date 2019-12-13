@@ -7,16 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.adapter.MovieAdapter
-import com.example.mvppattern.contracts.PreviewContract
 import com.example.mvppattern.data.MoviePreview
-import com.example.mvppattern.mvp.presenter.MainPresenter
+import com.example.mvppattern.mvp.presenter.MainPresenterImpl
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : LoadActivity(),
-    PreviewContract.ListPreviewsView<MainPresenter>, MovieAdapter.OnItemClickListener {
+class MainViewActivity : LoadViewActivity(), MainView, MovieAdapter.OnItemClickListener {
 
-    private lateinit var presenterMain: MainPresenter
+    private lateinit var presenterMainImpl: MainPresenterImpl
     private val movieAdapter = MovieAdapter(this, this)
 
     override val progressBar: ProgressBar
@@ -30,8 +28,8 @@ class MainActivity : LoadActivity(),
         rv_movies.adapter = movieAdapter
         rv_movies.layoutManager = LinearLayoutManager(this)
 
-        presenterMain = MainPresenter(this)
-        presenterMain.loadListPreviews()
+        presenterMainImpl = MainPresenterImpl(this)
+        presenterMainImpl.loadListPreviews()
     }
 
     override fun onItemClicked(moviePreview: MoviePreview) {
@@ -39,7 +37,7 @@ class MainActivity : LoadActivity(),
     }
 
     private fun loadMoviesDetailInfo(id: Int) {
-        val intent = Intent(this, DetailsActivity::class.java)
+        val intent = Intent(this, DetailsViewViewActivity::class.java)
         intent.putExtra(MOVIE_ID, id)
         startActivity(intent)
     }

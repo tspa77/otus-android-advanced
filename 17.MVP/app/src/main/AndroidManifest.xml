@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.mvppattern.mvp.view.LoadActivity"></activity>
-        <activity android:name="com.example.mvppattern.mvp.view.DetailsActivity" />
-        <activity android:name="com.example.mvppattern.mvp.view.MainActivity">
+        <activity android:name="com.example.mvppattern.mvp.view.LoadViewActivity"></activity>
+        <activity android:name="com.example.mvppattern.mvp.view.DetailsViewViewActivity" />
+        <activity android:name="com.example.mvppattern.mvp.view.MainViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
