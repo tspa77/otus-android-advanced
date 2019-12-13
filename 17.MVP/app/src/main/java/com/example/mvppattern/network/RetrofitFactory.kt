@@ -1,7 +1,7 @@
-package com.example.tmdb.network
+package com.example.mvppattern.network
 
-import com.example.tmdb.AppConstants
-import com.example.tmdb.BuildConfig
+import com.example.mvppattern.AppConstants
+import com.example.mvppattern.BuildConfig
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json

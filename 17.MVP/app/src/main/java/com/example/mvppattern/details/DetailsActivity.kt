@@ -1,14 +1,14 @@
-package com.example.tmdb.details
+package com.example.mvppattern.details
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import com.example.tmdb.AppConstants
-import com.example.tmdb.AppConstants.MOVIE_ID
-import com.example.tmdb.R
-import com.example.tmdb.basics.DetailsContract
-import com.example.tmdb.basics.LoadActivity
-import com.example.tmdb.model.MovieDetails
+import com.example.mvppattern.AppConstants
+import com.example.mvppattern.AppConstants.MOVIE_ID
+import com.example.mvppattern.R
+import com.example.mvppattern.basics.DetailsContract
+import com.example.mvppattern.basics.LoadActivity
+import com.example.mvppattern.model.MovieDetails
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*
 

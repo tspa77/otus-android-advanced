@@ -1,6 +1,6 @@
-package com.example.tmdb.basics
+package com.example.mvppattern.basics
 
-import com.example.tmdb.model.MovieDetails
+import com.example.mvppattern.model.MovieDetails
 
 interface DetailsContract {
 

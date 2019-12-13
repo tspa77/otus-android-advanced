@@ -1,16 +1,16 @@
-package com.example.tmdb.main
+package com.example.mvppattern.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tmdb.AppConstants.MOVIE_ID
-import com.example.tmdb.R
-import com.example.tmdb.adapter.MovieAdapter
-import com.example.tmdb.basics.LoadActivity
-import com.example.tmdb.basics.PreviewContract
-import com.example.tmdb.details.DetailsActivity
-import com.example.tmdb.model.MoviePreview
+import com.example.mvppattern.AppConstants.MOVIE_ID
+import com.example.mvppattern.R
+import com.example.mvppattern.adapter.MovieAdapter
+import com.example.mvppattern.basics.LoadActivity
+import com.example.mvppattern.basics.PreviewContract
+import com.example.mvppattern.details.DetailsActivity
+import com.example.mvppattern.model.MoviePreview
 import kotlinx.android.synthetic.main.activity_main.*
 
 

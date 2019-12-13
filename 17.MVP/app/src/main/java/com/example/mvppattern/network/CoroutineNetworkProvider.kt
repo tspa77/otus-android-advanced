@@ -1,7 +1,7 @@
-package com.example.tmdb.network
+package com.example.mvppattern.network
 
-import com.example.tmdb.model.MovieDetails
-import com.example.tmdb.model.MoviePreview
+import com.example.mvppattern.model.MovieDetails
+import com.example.mvppattern.model.MoviePreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

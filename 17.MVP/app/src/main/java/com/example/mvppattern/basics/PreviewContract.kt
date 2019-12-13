@@ -1,6 +1,6 @@
-package com.example.tmdb.basics
+package com.example.mvppattern.basics
 
-import com.example.tmdb.model.MoviePreview
+import com.example.mvppattern.model.MoviePreview
 
 interface PreviewContract {
 

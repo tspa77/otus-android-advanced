@@ -1,7 +1,7 @@
-package com.example.tmdb.network
+package com.example.mvppattern.network
 
-import com.example.tmdb.model.ListMoviePreviews
-import com.example.tmdb.model.MovieDetails
+import com.example.mvppattern.model.ListMoviePreviews
+import com.example.mvppattern.model.MovieDetails
 import retrofit2.http.GET
 import retrofit2.http.Path
 

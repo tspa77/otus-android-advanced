@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tmdb">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mvppattern">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.tmdb.basics.LoadActivity"></activity>
-        <activity android:name="com.example.tmdb.details.DetailsActivity" />
-        <activity android:name="com.example.tmdb.main.MainActivity">
+        <activity android:name="com.example.mvppattern.basics.LoadActivity"></activity>
+        <activity android:name="com.example.mvppattern.details.DetailsActivity" />
+        <activity android:name="com.example.mvppattern.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.tmdb
+package com.example.mvppattern
 
 import org.junit.Test
 

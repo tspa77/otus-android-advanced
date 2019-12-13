@@ -1,4 +1,4 @@
-package com.example.tmdb.adapter
+package com.example.mvppattern.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tmdb.AppConstants
-import com.example.tmdb.model.MoviePreview
-import com.example.tmdb.R
+import com.example.mvppattern.AppConstants
+import com.example.mvppattern.model.MoviePreview
+import com.example.mvppattern.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.card_movie_item.view.*
 

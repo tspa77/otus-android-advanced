@@ -1,4 +1,4 @@
-package com.example.tmdb.basics
+package com.example.mvppattern.basics
 
 import android.util.Log
 import android.widget.ProgressBar

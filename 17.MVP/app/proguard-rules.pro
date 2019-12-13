@@ -34,4 +34,23 @@
 # - 35 unresolved references to classes or interfaces.
  -dontwarn okhttp3.**
 
+# Kotlin cross-platform / multi-format reflectionless serialization
+# https://github.com/Kotlin/kotlinx.serialization
+ -keepattributes *Annotation*, InnerClasses
+ -dontnote kotlinx.serialization.SerializationKt
+ -keep,includedescriptorclasses class com.example.mvppattern.**$$serializer { *; } # <-- change package name to your app's
+ -keepclassmembers class com.example.mvppattern.**{ # <-- change package name to your app's
+    *** Companion;
+}
+-keepclasseswithmembers class com.example.mvppattern.**{ # <-- change package name to your app's
+    kotlinx.serialization.KSerializer serializer(...);
+}
 
+#Removing logging
+-assumenosideeffects class android.util.Log {
+    public static *** v(...);
+    public static *** d(...);
+    public static *** i(...);
+    public static *** w(...);
+    public static *** e(...);
+  }
