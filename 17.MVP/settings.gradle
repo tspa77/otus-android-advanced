@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='Views and Canvas'
+rootProject.name='MVP'
