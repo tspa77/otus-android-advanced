@@ -3,16 +3,16 @@ package com.example.mvppattern.mvp.view
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.adapter.MovieAdapter
 import com.example.mvppattern.data.MoviePreview
-import com.example.mvppattern.mvp.presenter.MainPresenterImpl
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainViewActivity : LoadViewActivity(), MainView, MovieAdapter.OnItemClickListener {
+class MainViewActivity : AppCompatActivity(), ShowingView, MovieAdapter.OnItemClickListener {
 
     private lateinit var presenterMainImpl: MainPresenterImpl
     private val movieAdapter = MovieAdapter(this, this)
@@ -37,7 +37,7 @@ class MainViewActivity : LoadViewActivity(), MainView, MovieAdapter.OnItemClickL
     }
 
     private fun loadMoviesDetailInfo(id: Int) {
-        val intent = Intent(this, DetailsViewViewActivity::class.java)
+        val intent = Intent(this, ShowingViewActivity::class.java)
         intent.putExtra(MOVIE_ID, id)
         startActivity(intent)
     }

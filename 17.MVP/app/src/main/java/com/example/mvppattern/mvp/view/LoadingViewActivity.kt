@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
-abstract class LoadViewActivity : AppCompatActivity(), LoadView {
+abstract class LoadingViewActivity : AppCompatActivity(), LoadingView {
 
     abstract val progressBar: ProgressBar
 
