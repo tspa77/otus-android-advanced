@@ -2,12 +2,12 @@ package com.example.mvppattern.mvp.model
 
 import android.util.Log
 import com.example.mvppattern.AppConstants.MY_LOG_TAG
-import com.example.mvppattern.data.MovieDetails
-import com.example.mvppattern.data.MoviePreview
+import com.example.mvppattern.adapter.MovieDetails
+import com.example.mvppattern.adapter.MoviePreview
 import com.example.mvppattern.network.CoroutineNetworkProvider
 
 @kotlinx.serialization.UnstableDefault
-object BaseRepositoryImpl : BaseRepository {
+object RepositoryImpl : Repository {
 
     private val networkProvider = CoroutineNetworkProvider
 
@@ -19,6 +19,7 @@ object BaseRepositoryImpl : BaseRepository {
     ) {
         networkProvider.downloadListPreviews({
             Log.d(MY_LOG_TAG, "Repository\n" + it.joinToString("\n"))
+
 
         }, {
             Log.d(MY_LOG_TAG, "Repository\n" + it.stackTrace.joinToString("\n"))

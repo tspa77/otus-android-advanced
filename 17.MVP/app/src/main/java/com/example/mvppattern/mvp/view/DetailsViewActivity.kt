@@ -3,37 +3,35 @@ package com.example.mvppattern.mvp.view
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import androidx.appcompat.app.AppCompatActivity
 import com.example.mvppattern.AppConstants
 import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
-import com.example.mvppattern.data.MovieDetails
-import com.example.mvppattern.mvp.presenter.BasePresenterImpl
+import com.example.mvppattern.adapter.MovieDetails
+import com.example.mvppattern.mvp.presenter.DetailsPresenterImpl
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_movie_details.*
+import kotlinx.android.synthetic.main.activity_details_view.*
 
-class ShowingViewActivity :  AppCompatActivity(),ShowingView {
+@kotlinx.serialization.UnstableDefault
+class DetailsViewActivity : LoadingViewActivity(), DetailsView {
 
-    private lateinit var presenterInfo: BasePresenterImpl
+    private lateinit var detailsPresenterImpl: DetailsPresenterImpl
 
     override val progressBar: ProgressBar
         get() = findViewById(R.id.progress_bar)
 
-    @kotlinx.serialization.UnstableDefault
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie_details)
+        setContentView(R.layout.activity_details_view)
 
         val id = intent.getIntExtra(MOVIE_ID, 0)
-        presenterInfo =
-            BasePresenterImpl(this)
-        presenterInfo.loadInfo(id)
+        detailsPresenterImpl = DetailsPresenterImpl(this)
+        detailsPresenterImpl.getInfo(id)
 
         cv_vote.setOnClickListener { cv_vote.startAnimation() }
         group_labels.visibility = View.INVISIBLE
     }
 
-    override fun showInfo(movieInfo: MovieDetails) {
+    override fun showDetailsInfo(movieInfo: MovieDetails) {
         tv_title.text = movieInfo.title
         tv_release_date.text = movieInfo.releaseDate
         tv_popularity.text = movieInfo.popularity

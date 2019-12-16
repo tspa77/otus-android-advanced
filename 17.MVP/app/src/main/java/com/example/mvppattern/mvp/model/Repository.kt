@@ -1,9 +1,9 @@
 package com.example.mvppattern.mvp.model
 
-import com.example.mvppattern.data.MovieDetails
-import com.example.mvppattern.data.MoviePreview
+import com.example.mvppattern.adapter.MovieDetails
+import com.example.mvppattern.adapter.MoviePreview
 
-interface BaseRepository {
+interface Repository {
 
     fun getListPreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit)
 

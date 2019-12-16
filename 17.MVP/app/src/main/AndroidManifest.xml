@@ -13,8 +13,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name="com.example.mvppattern.mvp.view.LoadingViewActivity"></activity>
-        <activity android:name="com.example.mvppattern.mvp.view.ShowingViewActivity" />
-        <activity android:name="com.example.mvppattern.mvp.view.MainViewActivity">
+        <activity android:name="com.example.mvppattern.mvp.view.DetailsViewActivity" />
+        <activity android:name="com.example.mvppattern.mvp.view.ListPreviewViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

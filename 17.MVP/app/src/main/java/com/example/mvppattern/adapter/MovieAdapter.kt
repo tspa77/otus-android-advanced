@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvppattern.AppConstants
 import com.example.mvppattern.R
-import com.example.mvppattern.data.MoviePreview
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.card_movie_item.view.*
 

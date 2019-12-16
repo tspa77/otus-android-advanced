@@ -1,7 +1,8 @@
 package com.example.mvppattern.mvp.view
 
-import com.example.mvppattern.data.MoviePreview
+import com.example.mvppattern.adapter.MoviePreview
 
-interface MainView : LoadingView {
+interface ListPreviewView : LoadingView {
+
     fun showListPreviews(listPreviews: List<MoviePreview>)
 }

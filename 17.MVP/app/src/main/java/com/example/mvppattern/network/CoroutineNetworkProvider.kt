@@ -1,7 +1,7 @@
 package com.example.mvppattern.network
 
-import com.example.mvppattern.data.MovieDetails
-import com.example.mvppattern.data.MoviePreview
+import com.example.mvppattern.adapter.MovieDetails
+import com.example.mvppattern.adapter.MoviePreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
