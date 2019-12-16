@@ -1,4 +1,4 @@
-package com.example.mvppattern.network
+package com.example.mvppattern.mvp.model.network
 
 import com.example.mvppattern.AppConstants
 import com.example.mvppattern.BuildConfig

@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.adapter.MovieAdapter
-import com.example.mvppattern.adapter.MoviePreview
+import com.example.mvppattern.mvp.model.MoviePreview
+import com.example.mvppattern.mvp.presenter.ListPreviewPresenter
 import com.example.mvppattern.mvp.presenter.ListPreviewPresenterImpl
 import kotlinx.android.synthetic.main.activity_list_preview_view.*
 
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_list_preview_view.*
 class ListPreviewViewActivity : LoadingViewActivity(), ListPreviewView,
     MovieAdapter.OnItemClickListener {
 
-    private lateinit var listPreviewPresenterImpl: ListPreviewPresenterImpl
+    private lateinit var listPreviewPresenter: ListPreviewPresenter
     private val movieAdapter = MovieAdapter(this, this)
 
     override val progressBar: ProgressBar
@@ -29,8 +30,8 @@ class ListPreviewViewActivity : LoadingViewActivity(), ListPreviewView,
         rv_movies.adapter = movieAdapter
         rv_movies.layoutManager = LinearLayoutManager(this)
 
-        listPreviewPresenterImpl = ListPreviewPresenterImpl(this)
-        listPreviewPresenterImpl.getListPreviews()
+        listPreviewPresenter = ListPreviewPresenterImpl(this)
+        listPreviewPresenter.getListPreviews()
     }
 
     override fun onItemClicked(moviePreview: MoviePreview) {

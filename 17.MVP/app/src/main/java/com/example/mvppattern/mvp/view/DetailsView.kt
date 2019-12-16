@@ -1,6 +1,6 @@
 package com.example.mvppattern.mvp.view
 
-import com.example.mvppattern.adapter.MovieDetails
+import com.example.mvppattern.mvp.model.MovieDetails
 
 interface DetailsView : LoadingView {
 

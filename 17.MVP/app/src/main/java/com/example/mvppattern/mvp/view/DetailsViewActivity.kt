@@ -6,7 +6,7 @@ import android.widget.ProgressBar
 import com.example.mvppattern.AppConstants
 import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
-import com.example.mvppattern.adapter.MovieDetails
+import com.example.mvppattern.mvp.model.MovieDetails
 import com.example.mvppattern.mvp.presenter.DetailsPresenterImpl
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_details_view.*
@@ -25,7 +25,7 @@ class DetailsViewActivity : LoadingViewActivity(), DetailsView {
 
         val id = intent.getIntExtra(MOVIE_ID, 0)
         detailsPresenterImpl = DetailsPresenterImpl(this)
-        detailsPresenterImpl.getInfo(id)
+        detailsPresenterImpl.getDetails(id)
 
         cv_vote.setOnClickListener { cv_vote.startAnimation() }
         group_labels.visibility = View.INVISIBLE

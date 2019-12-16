@@ -10,7 +10,7 @@ class DetailsPresenterImpl(private val view: DetailsView) : DetailsPresenter {
 
     private val repository = RepositoryImpl
 
-    override fun getInfo(id: Int) {
+    override fun getDetails(id: Int) {
         view.showLoading()
         repository.getDetailsInfo(id, {
             view.hideLoading()
