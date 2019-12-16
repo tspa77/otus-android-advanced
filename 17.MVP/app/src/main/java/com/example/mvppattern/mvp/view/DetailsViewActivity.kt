@@ -7,6 +7,7 @@ import com.example.mvppattern.AppConstants
 import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.mvp.model.MovieDetails
+import com.example.mvppattern.mvp.presenter.DetailsPresenter
 import com.example.mvppattern.mvp.presenter.DetailsPresenterImpl
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_details_view.*
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_details_view.*
 @kotlinx.serialization.UnstableDefault
 class DetailsViewActivity : LoadingViewActivity(), DetailsView {
 
-    private lateinit var detailsPresenterImpl: DetailsPresenterImpl
+    private lateinit var detailsPresenter: DetailsPresenter
 
     override val progressBar: ProgressBar
         get() = findViewById(R.id.progress_bar)
@@ -24,8 +25,8 @@ class DetailsViewActivity : LoadingViewActivity(), DetailsView {
         setContentView(R.layout.activity_details_view)
 
         val id = intent.getIntExtra(MOVIE_ID, 0)
-        detailsPresenterImpl = DetailsPresenterImpl(this)
-        detailsPresenterImpl.getDetails(id)
+        detailsPresenter = DetailsPresenterImpl(this)
+        detailsPresenter.getDetails(id)
 
         cv_vote.setOnClickListener { cv_vote.startAnimation() }
         group_labels.visibility = View.INVISIBLE
