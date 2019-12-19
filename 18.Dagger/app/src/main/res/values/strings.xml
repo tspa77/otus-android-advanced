@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">18.Dagger</string>
+    <string name="iv_poster">Poster</string>
+    <string name="tv_popularity_lbl">Popularity:</string>
+    <string name="tv_release_date_lbl">ReleaseDate:</string>
+    <string name="tv_vote_lbl">Vote:</string>
+</resources>
