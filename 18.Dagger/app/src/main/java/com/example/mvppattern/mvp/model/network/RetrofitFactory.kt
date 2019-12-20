@@ -1,6 +1,6 @@
 package com.example.mvppattern.mvp.model.network
 
-import com.example.mvppattern.AppConstants
+import com.example.mvppattern.application.AppConstants
 import com.example.mvppattern.BuildConfig
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.UnstableDefault

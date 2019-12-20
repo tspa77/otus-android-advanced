@@ -3,8 +3,8 @@ package com.example.mvppattern.mvp.view
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import com.example.mvppattern.AppConstants.IMAGE_URL
-import com.example.mvppattern.AppConstants.MOVIE_ID
+import com.example.mvppattern.application.AppConstants.IMAGE_URL
+import com.example.mvppattern.application.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.mvp.model.MovieDetails
 import com.example.mvppattern.mvp.presenter.DetailsPresenter

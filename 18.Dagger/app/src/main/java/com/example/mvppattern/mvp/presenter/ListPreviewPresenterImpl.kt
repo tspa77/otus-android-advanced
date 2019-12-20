@@ -1,7 +1,7 @@
 package com.example.mvppattern.mvp.presenter
 
 import android.util.Log
-import com.example.mvppattern.AppConstants.MY_LOG_TAG
+import com.example.mvppattern.application.AppConstants.MY_LOG_TAG
 import com.example.mvppattern.mvp.model.RepositoryImpl
 import com.example.mvppattern.mvp.view.ListPreviewView
 

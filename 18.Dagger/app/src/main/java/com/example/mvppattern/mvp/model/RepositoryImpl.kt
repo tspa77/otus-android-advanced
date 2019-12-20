@@ -1,7 +1,7 @@
 package com.example.mvppattern.mvp.model
 
 import android.util.Log
-import com.example.mvppattern.AppConstants.MY_LOG_TAG
+import com.example.mvppattern.application.AppConstants.MY_LOG_TAG
 import com.example.mvppattern.mvp.model.network.CoroutineNetworkProvider
 
 @kotlinx.serialization.UnstableDefault

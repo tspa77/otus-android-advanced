@@ -1,4 +1,4 @@
-package com.example.mvppattern
+package com.example.mvppattern.application
 
 object AppConstants {
     // network

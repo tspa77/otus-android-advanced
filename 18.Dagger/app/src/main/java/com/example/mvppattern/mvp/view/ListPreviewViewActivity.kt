@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mvppattern.AppConstants.MOVIE_ID
+import com.example.mvppattern.application.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.adapter.MovieAdapter
 import com.example.mvppattern.mvp.model.MoviePreview
