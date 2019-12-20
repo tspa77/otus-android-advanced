@@ -1,8 +1,7 @@
 package com.example.mvppattern.application
 
 import android.app.Application
-import com.example.mvppattern.di.AppComponent
-import com.example.mvppattern.di.DaggerAppComponent
+import com.example.mvppattern.di.*
 
 
 class App : Application() {
@@ -10,7 +9,12 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        component = DaggerAppComponent.create()
+        component = DaggerAppComponent
+            .builder()
+            .retrofitModule(RetrofitModule())
+            .apiModule(ApiModule())
+//            .repositoryModule(RepositoryModule())
+            .build()
     }
 
     fun getComponent(): AppComponent? {

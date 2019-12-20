@@ -2,13 +2,14 @@ package com.example.mvppattern.mvp.presenter
 
 import android.util.Log
 import com.example.mvppattern.application.AppConstants.MY_LOG_TAG
+import com.example.mvppattern.mvp.model.Repository
 import com.example.mvppattern.mvp.model.RepositoryImpl
 import com.example.mvppattern.mvp.view.DetailsView
 
 @kotlinx.serialization.UnstableDefault
 class DetailsPresenterImpl(private val view: DetailsView) : DetailsPresenter {
 
-    private val repository = RepositoryImpl
+    private val repository: Repository = RepositoryImpl()
 
     override fun getDetails(id: Int) {
         view.showLoading()

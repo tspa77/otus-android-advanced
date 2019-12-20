@@ -5,11 +5,10 @@ import com.example.mvppattern.mvp.model.MoviePreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @kotlinx.serialization.UnstableDefault
-object CoroutineNetworkProvider : NetworkProvider {
-
-    private val api = RetrofitFactory.getMovieService()
+class CoroutineNetworkProvider @Inject constructor(private val api: Api) : NetworkProvider {
 
     override fun downloadListPreviews(
         onDone: (List<MoviePreview>) -> Unit,

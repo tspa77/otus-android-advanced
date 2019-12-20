@@ -2,12 +2,12 @@ package com.example.mvppattern.mvp.model
 
 import android.util.Log
 import com.example.mvppattern.application.AppConstants.MY_LOG_TAG
-import com.example.mvppattern.mvp.model.network.CoroutineNetworkProvider
+import com.example.mvppattern.mvp.model.network.NetworkProvider
 
 @kotlinx.serialization.UnstableDefault
-object RepositoryImpl : Repository {
+class RepositoryImpl(private val networkProvider: NetworkProvider) : Repository {
 
-    private val networkProvider = CoroutineNetworkProvider
+//    private val networkProvider = CoroutineNetworkProvider
 
     // На данный момент это лишь имитация репозитория, просто проксирует запросы к сети
     // В текущей реализации можно из презентера напрямую обращаться к нетворкпровайдеру.

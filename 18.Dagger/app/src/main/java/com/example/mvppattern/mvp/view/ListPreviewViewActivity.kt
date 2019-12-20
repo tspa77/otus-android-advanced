@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvppattern.application.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.adapter.MovieAdapter
+import com.example.mvppattern.application.App
 import com.example.mvppattern.mvp.model.MoviePreview
 import com.example.mvppattern.mvp.presenter.ListPreviewPresenter
 import com.example.mvppattern.mvp.presenter.ListPreviewPresenterImpl
@@ -27,10 +28,12 @@ class ListPreviewViewActivity : LoadingViewActivity(), ListPreviewView,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_preview_view)
 
+        val repository =( application as App).getComponent()!!.getRepository()
+
         rv_movies.adapter = movieAdapter
         rv_movies.layoutManager = LinearLayoutManager(this)
 
-        listPreviewPresenter = ListPreviewPresenterImpl(this)
+        listPreviewPresenter = ListPreviewPresenterImpl(this, repository)
         listPreviewPresenter.getListPreviews()
     }
 
