@@ -7,7 +7,7 @@ import com.example.mvppattern.di.module.ApiModule
 import com.example.mvppattern.di.module.RetrofitModule
 
 @kotlinx.serialization.UnstableDefault
-class App : Application() {
+class TmdbApp : Application() {
     private lateinit var component: AppComponent
 
     override fun onCreate() {
@@ -20,7 +20,13 @@ class App : Application() {
             .build()
     }
 
-    fun getComponent(): AppComponent? {
-        return component
-    }
+    private fun initDagger(app: TmdbApp): AppComponent =
+        DaggerAppComponent.builder()
+            .build()
 }
+
+
+//fun getComponent(): AppComponent? {
+//    return component
+//}
+//}

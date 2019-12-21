@@ -8,11 +8,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @kotlinx.serialization.UnstableDefault
-object CoroutineNetworkProvider : NetworkProvider {
-
-    @Inject
-    lateinit var api: Api
-
+class CoroutineNetworkProvider @Inject constructor(private val api: Api) : NetworkProvider {
 
     override fun downloadListPreviews(
         onDone: (List<MoviePreview>) -> Unit,

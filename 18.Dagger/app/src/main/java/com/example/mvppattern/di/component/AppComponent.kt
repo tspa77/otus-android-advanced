@@ -10,6 +10,5 @@ import dagger.Component
 @Component(modules = [RetrofitModule::class, ApiModule::class, RepositoryModule::class])
 interface AppComponent {
 
-
     fun inject(api: Api)
 }
