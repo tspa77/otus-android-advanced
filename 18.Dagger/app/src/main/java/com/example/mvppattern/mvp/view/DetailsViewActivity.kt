@@ -3,9 +3,10 @@ package com.example.mvppattern.mvp.view
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import com.example.mvppattern.application.AppConstants.IMAGE_URL
-import com.example.mvppattern.application.AppConstants.MOVIE_ID
+import com.example.mvppattern.AppConstants.IMAGE_URL
+import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
+import com.example.mvppattern.application.App
 import com.example.mvppattern.mvp.model.MovieDetails
 import com.example.mvppattern.mvp.presenter.DetailsPresenter
 import com.example.mvppattern.mvp.presenter.DetailsPresenterImpl
@@ -24,8 +25,10 @@ class DetailsViewActivity : LoadingViewActivity(), DetailsView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_view)
 
+        val repository = (application as App).getComponent()!!.getRepository()
+
         val id = intent.getIntExtra(MOVIE_ID, 0)
-        detailsPresenter = DetailsPresenterImpl(this)
+        detailsPresenter = DetailsPresenterImpl(this, repository)
         detailsPresenter.getDetails(id)
 
         cv_vote.setOnClickListener { cv_vote.startAnimation() }

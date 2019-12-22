@@ -1,7 +1,7 @@
 package com.example.mvppattern.di.module
 
 import com.example.mvppattern.BuildConfig
-import com.example.mvppattern.application.AppConstants
+import com.example.mvppattern.AppConstants
 import com.example.mvppattern.mvp.model.network.interceptor.AuthInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
