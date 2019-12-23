@@ -7,7 +7,7 @@ import com.example.mvppattern.mvp.model.network.NetworkProvider
 import javax.inject.Inject
 
 @kotlinx.serialization.UnstableDefault
-class RepositoryImpl @Inject constructor(private val networkProvider: NetworkProvider) :
+class RepositoryImpl (private val networkProvider: NetworkProvider) :
     Repository {
 
     // На данный момент это лишь имитация репозитория, просто проксирует запросы к сети

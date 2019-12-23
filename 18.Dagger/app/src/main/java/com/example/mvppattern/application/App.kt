@@ -3,8 +3,7 @@ package com.example.mvppattern.application
 import android.app.Application
 import com.example.mvppattern.di.component.AppComponent
 import com.example.mvppattern.di.component.DaggerAppComponent
-import com.example.mvppattern.di.module.ApiModule
-import com.example.mvppattern.di.module.RetrofitModule
+import com.example.mvppattern.di.module.AppModule
 
 @kotlinx.serialization.UnstableDefault
 class App : Application() {
@@ -14,14 +13,12 @@ class App : Application() {
         super.onCreate()
         component = DaggerAppComponent
             .builder()
-//            .retrofitModule(RetrofitModule())
-//            .apiModule(ApiModule())
-//            .repositoryModule(RepositoryModule())
+            .appModule(AppModule(this))
             .build()
     }
 
 
-    fun getComponent(): AppComponent? {
+    fun getComponent(): AppComponent {
         return component
     }
 }

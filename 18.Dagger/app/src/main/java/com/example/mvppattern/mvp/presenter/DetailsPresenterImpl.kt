@@ -3,12 +3,10 @@ package com.example.mvppattern.mvp.presenter
 import android.util.Log
 import com.example.mvppattern.AppConstants.MY_LOG_TAG
 import com.example.mvppattern.mvp.model.Repository
-import com.example.mvppattern.mvp.model.RepositoryImpl
 import com.example.mvppattern.mvp.view.DetailsView
-import javax.inject.Inject
 
 @kotlinx.serialization.UnstableDefault
-class DetailsPresenterImpl @Inject constructor(
+class DetailsPresenterImpl(
     private val view: DetailsView,
     private val repository: Repository
 ) : DetailsPresenter {
