@@ -15,9 +15,8 @@ class RepositoryModule {
 //    @Binds
 //    fun bindRepository(impl: RepositoryImpl): Repository
 
-
-    @Singleton
     @Provides
+    @Singleton
     fun provideRepository(networkProvider: NetworkProvider): Repository {
         return RepositoryImpl(networkProvider)
     }
