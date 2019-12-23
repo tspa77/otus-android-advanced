@@ -1,15 +1,15 @@
 package com.example.mvppattern.di.module
 
-import com.example.mvppattern.mvp.view.ListPreviewView
+import com.example.mvppattern.mvp.view.ListMoviesView
 import dagger.Module
 import dagger.Provides
 
 @kotlinx.serialization.UnstableDefault
 @Module
-class ListPreviewViewModule(val activity: ListPreviewView) {
+class ListMoviesViewModule(private val activity: ListMoviesView) {
 
     @Provides
-    fun provideListPreviewView(): ListPreviewView {
+    fun provideListMoviesView(): ListMoviesView {
         return activity
     }
 }

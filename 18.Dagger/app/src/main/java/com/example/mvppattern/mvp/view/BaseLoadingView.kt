@@ -1,6 +1,6 @@
 package com.example.mvppattern.mvp.view
 
-interface LoadingView {
+interface BaseLoadingView {
 
     fun showLoading()
 

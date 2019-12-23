@@ -1,21 +1,21 @@
 package com.example.mvppattern.di.component
 
-import com.example.mvppattern.di.module.*
+import com.example.mvppattern.di.module.ApiModule
+import com.example.mvppattern.di.module.NetworkProviderModule
+import com.example.mvppattern.di.module.RepositoryModule
+import com.example.mvppattern.di.module.RetrofitModule
 import com.example.mvppattern.mvp.model.Repository
-import com.example.mvppattern.mvp.model.network.NetworkProvider
 import dagger.Component
 import javax.inject.Singleton
 
 @kotlinx.serialization.UnstableDefault
 @Singleton
 @Component(
-    modules = [AppModule::class, RetrofitModule::class, ApiModule::class, RepositoryModule::class, NetworkProviderModule::class]
+    modules = [RetrofitModule::class, ApiModule::class,
+        RepositoryModule::class, NetworkProviderModule::class]
 )
 
 interface AppComponent {
 
     fun getRepository(): Repository
-
-//    fun getNetworkProvider(): NetworkProvider
-
 }

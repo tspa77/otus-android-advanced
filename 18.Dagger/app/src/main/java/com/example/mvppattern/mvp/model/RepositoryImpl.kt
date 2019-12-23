@@ -2,9 +2,7 @@ package com.example.mvppattern.mvp.model
 
 import android.util.Log
 import com.example.mvppattern.AppConstants.MY_LOG_TAG
-import com.example.mvppattern.mvp.model.network.CoroutineNetworkProvider
 import com.example.mvppattern.mvp.model.network.NetworkProvider
-import javax.inject.Inject
 
 @kotlinx.serialization.UnstableDefault
 class RepositoryImpl (private val networkProvider: NetworkProvider) :
@@ -30,7 +28,7 @@ class RepositoryImpl (private val networkProvider: NetworkProvider) :
 
     override fun getDetailsInfo(
         id: Int,
-        onDone: (MovieDetails) -> Unit,
+        onDone: (MovieInfo) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         networkProvider.downloadDetailsInfo(id, {

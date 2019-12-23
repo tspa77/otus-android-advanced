@@ -3,19 +3,19 @@ package com.example.mvppattern.mvp.presenter
 import android.util.Log
 import com.example.mvppattern.AppConstants.MY_LOG_TAG
 import com.example.mvppattern.mvp.model.Repository
-import com.example.mvppattern.mvp.view.ListPreviewView
+import com.example.mvppattern.mvp.view.CardMovieView
 
 @kotlinx.serialization.UnstableDefault
-class ListPreviewPresenterImpl (
-    private val view: ListPreviewView,
+class CardMoviePresenterImpl(
+    private val view: CardMovieView,
     private val repository: Repository
-) : ListPreviewPresenter {
+) : CardMoviePresenter {
 
-    override fun getListPreviews() {
+    override fun getMovieInfo(id: Int) {
         view.showLoading()
-        repository.getListPreviews({
+        repository.getDetailsInfo(id, {
             view.hideLoading()
-            view.showListPreviews(it)
+            view.showMovieInfo(it)
             Log.d(MY_LOG_TAG, it.toString())
         }, {
             view.hideLoading()

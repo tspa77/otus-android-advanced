@@ -18,7 +18,7 @@ data class MoviePreview(
 )
 
 @Serializable
-data class MovieDetails(
+data class MovieInfo(
     @SerialName("poster_path")
     val posterPath: String,
     @SerialName("overview")

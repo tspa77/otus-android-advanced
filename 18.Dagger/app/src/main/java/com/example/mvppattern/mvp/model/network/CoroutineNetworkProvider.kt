@@ -1,11 +1,10 @@
 package com.example.mvppattern.mvp.model.network
 
-import com.example.mvppattern.mvp.model.MovieDetails
+import com.example.mvppattern.mvp.model.MovieInfo
 import com.example.mvppattern.mvp.model.MoviePreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @kotlinx.serialization.UnstableDefault
 class CoroutineNetworkProvider (private val api: Api) : NetworkProvider {
@@ -25,7 +24,7 @@ class CoroutineNetworkProvider (private val api: Api) : NetworkProvider {
 
     override fun downloadDetailsInfo(
         id: Int,
-        onDone: (MovieDetails) -> Unit,
+        onDone: (MovieInfo) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         CoroutineScope(Dispatchers.Main).launch {

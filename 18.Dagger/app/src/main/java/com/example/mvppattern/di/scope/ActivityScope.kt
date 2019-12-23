@@ -1,4 +1,4 @@
-package com.example.mvppattern.di
+package com.example.mvppattern.di.scope
 
 import javax.inject.Scope
 

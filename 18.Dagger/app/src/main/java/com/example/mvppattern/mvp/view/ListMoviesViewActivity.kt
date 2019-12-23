@@ -8,50 +8,41 @@ import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.adapter.MovieAdapter
 import com.example.mvppattern.application.App
-import com.example.mvppattern.di.component.DaggerListPreviewComponent
-import com.example.mvppattern.di.component.ListPreviewComponent
-import com.example.mvppattern.di.module.ListPreviewPresenterModule
-import com.example.mvppattern.di.module.ListPreviewViewModule
+import com.example.mvppattern.di.component.DaggerListMoviesComponent
+import com.example.mvppattern.di.module.ListMoviesViewModule
 import com.example.mvppattern.mvp.model.MoviePreview
-import com.example.mvppattern.mvp.presenter.ListPreviewPresenter
+import com.example.mvppattern.mvp.presenter.ListMoviesPresenter
 import kotlinx.android.synthetic.main.activity_list_preview_view.*
 import javax.inject.Inject
 
 @kotlinx.serialization.UnstableDefault
-class ListPreviewViewActivity : LoadingViewActivity(), ListPreviewView,
+class ListMoviesViewActivity : BaseLoadingViewActivity(), ListMoviesView,
     MovieAdapter.OnItemClickListener {
 
     @Inject
-    lateinit var listPreviewPresenter: ListPreviewPresenter
+    lateinit var listMoviesPresenter: ListMoviesPresenter
 
-    //    private lateinit var listPreviewPresenter: ListPreviewPresenter
     private val movieAdapter = MovieAdapter(this, this)
 
     override val progressBar: ProgressBar
         get() = findViewById(R.id.progress_bar)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_preview_view)
-
+        // Dagger init
         val appComponent = (application as App).getComponent()
-
-        DaggerListPreviewComponent.builder()
+        DaggerListMoviesComponent.builder()
             .appComponent(appComponent)
-            .listPreviewViewModule(ListPreviewViewModule(this))
+            .listMoviesViewModule(ListMoviesViewModule(this))
             .build()
             .inject(this)
 
 
-
-//        val repository = (application as App).getComponent()!!.getRepository()
-
         rv_movies.adapter = movieAdapter
         rv_movies.layoutManager = LinearLayoutManager(this)
 
-//        listPreviewPresenter = ListPreviewPresenterImpl(this, repository)
-        listPreviewPresenter.getListPreviews()
+        listMoviesPresenter.getListMovies()
     }
 
     override fun onItemClicked(moviePreview: MoviePreview) {
@@ -59,11 +50,11 @@ class ListPreviewViewActivity : LoadingViewActivity(), ListPreviewView,
     }
 
     private fun loadMoviesDetailInfo(id: Int) {
-        val intent = Intent(this, DetailsViewActivity::class.java)
+        val intent = Intent(this, CardMovieViewActivity::class.java)
         intent.putExtra(MOVIE_ID, id)
         startActivity(intent)
     }
 
-    override fun showListPreviews(listPreviews: List<MoviePreview>) =
-        movieAdapter.setData(listPreviews)
+    override fun showListMovies(listMovies: List<MoviePreview>) =
+        movieAdapter.setData(listMovies)
 }

@@ -11,10 +11,6 @@ import javax.inject.Singleton
 @Module
 class RepositoryModule {
 
-//    @Singleton
-//    @Binds
-//    fun bindRepository(impl: RepositoryImpl): Repository
-
     @Provides
     @Singleton
     fun provideRepository(networkProvider: NetworkProvider): Repository {
