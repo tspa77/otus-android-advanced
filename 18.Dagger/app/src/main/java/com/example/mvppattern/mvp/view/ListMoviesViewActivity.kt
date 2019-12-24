@@ -30,19 +30,21 @@ class ListMoviesViewActivity : BaseLoadingViewActivity(), ListMoviesView,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_preview_view)
-        // Dagger init
+        daggerInject()
+
+        rv_movies.adapter = movieAdapter
+        rv_movies.layoutManager = LinearLayoutManager(this)
+
+        listMoviesPresenter.getListMovies()
+    }
+
+    private fun daggerInject() {
         val appComponent = (application as App).getComponent()
         DaggerListMoviesComponent.builder()
             .appComponent(appComponent)
             .listMoviesViewModule(ListMoviesViewModule(this))
             .build()
             .inject(this)
-
-
-        rv_movies.adapter = movieAdapter
-        rv_movies.layoutManager = LinearLayoutManager(this)
-
-        listMoviesPresenter.getListMovies()
     }
 
     override fun onItemClicked(moviePreview: MoviePreview) {

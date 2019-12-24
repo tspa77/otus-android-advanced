@@ -27,14 +27,7 @@ class CardMovieViewActivity : BaseLoadingViewActivity(), CardMovieView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_view)
-        // Dagger init
-        val appComponent = (application as App).getComponent()
-        DaggerCardMovieComponent.builder()
-            .appComponent(appComponent)
-            .cardMovieViewModule(CardMovieViewModule(this))
-            .build()
-            .inject(this)
-
+        daggerInject()
 
         val id = intent.getIntExtra(MOVIE_ID, 0)
 
@@ -42,6 +35,15 @@ class CardMovieViewActivity : BaseLoadingViewActivity(), CardMovieView {
 
         cv_vote.setOnClickListener { cv_vote.startAnimation() }
         group_labels.visibility = View.INVISIBLE
+    }
+
+    private fun daggerInject() {
+        val appComponent = (application as App).getComponent()
+        DaggerCardMovieComponent.builder()
+            .appComponent(appComponent)
+            .cardMovieViewModule(CardMovieViewModule(this))
+            .build()
+            .inject(this)
     }
 
     override fun showMovieInfo(movieInfo: MovieInfo) {
