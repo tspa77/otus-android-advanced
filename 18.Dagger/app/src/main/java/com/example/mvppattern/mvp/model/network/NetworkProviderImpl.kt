@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @kotlinx.serialization.UnstableDefault
-class CoroutineNetworkProvider (private val api: Api) : NetworkProvider {
+class NetworkProviderImpl (private val api: Api) : NetworkProvider {
 
     override fun downloadListPreviews(
         onDone: (List<MoviePreview>) -> Unit,
