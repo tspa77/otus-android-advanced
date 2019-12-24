@@ -1,11 +1,15 @@
 package com.example.mvppattern.di.module
 
-import com.example.mvppattern.BuildConfig
 import com.example.mvppattern.AppConstants
+import com.example.mvppattern.BuildConfig
+import com.example.mvppattern.mvp.model.network.Api
+import com.example.mvppattern.mvp.model.network.NetworkProvider
+import com.example.mvppattern.mvp.model.network.NetworkProviderImpl
 import com.example.mvppattern.mvp.model.network.interceptor.AuthInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
+import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
@@ -13,14 +17,17 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
+@UnstableDefault
 @Module
-class RetrofitModule {
+class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideAuthInterceptor(): AuthInterceptor {
-        return AuthInterceptor()
-    }
+    fun provideNetworkProvider(api: Api): NetworkProvider = NetworkProviderImpl(api)
+
+    @Provides
+    @Singleton
+    fun provideAuthInterceptor(): AuthInterceptor = AuthInterceptor()
 
     @Provides
     @Singleton
@@ -47,7 +54,7 @@ class RetrofitModule {
             .build()
     }
 
-    @kotlinx.serialization.UnstableDefault
+    @UnstableDefault
     @Provides
     @Singleton
     fun provideRetrofit(okHttp: OkHttpClient): Retrofit {
@@ -57,4 +64,8 @@ class RetrofitModule {
             .addConverterFactory(Json.nonstrict.asConverterFactory(contentType = "application/json".toMediaTypeOrNull()!!))
             .build()
     }
+
+    @Provides
+    @Singleton
+    fun provideApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
 }

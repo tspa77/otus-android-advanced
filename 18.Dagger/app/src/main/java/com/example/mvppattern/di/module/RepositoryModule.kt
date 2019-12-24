@@ -5,9 +5,10 @@ import com.example.mvppattern.mvp.model.RepositoryImpl
 import com.example.mvppattern.mvp.model.network.NetworkProvider
 import dagger.Module
 import dagger.Provides
+import kotlinx.serialization.UnstableDefault
 import javax.inject.Singleton
 
-@kotlinx.serialization.UnstableDefault
+@UnstableDefault
 @Module
 class RepositoryModule {
 

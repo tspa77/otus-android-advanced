@@ -8,7 +8,7 @@ import com.example.mvppattern.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.application.App
 import com.example.mvppattern.di.component.DaggerCardMovieComponent
-import com.example.mvppattern.di.module.CardMovieViewModule
+import com.example.mvppattern.di.module.CardMovieModule
 import com.example.mvppattern.mvp.model.MovieInfo
 import com.example.mvppattern.mvp.presenter.CardMoviePresenter
 import com.squareup.picasso.Picasso
@@ -53,7 +53,7 @@ class CardMovieViewActivity : BaseLoadingViewActivity(), CardMovieView {
         val appComponent = (application as App).getComponent()
         DaggerCardMovieComponent.builder()
             .appComponent(appComponent)
-            .cardMovieViewModule(CardMovieViewModule(this))
+            .cardMovieModule(CardMovieModule(this))
             .build()
             .inject(this)
     }
