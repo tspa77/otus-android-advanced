@@ -37,15 +37,6 @@ class CardMovieViewActivity : BaseLoadingViewActivity(), CardMovieView {
         group_labels.visibility = View.INVISIBLE
     }
 
-    private fun daggerInject() {
-        val appComponent = (application as App).getComponent()
-        DaggerCardMovieComponent.builder()
-            .appComponent(appComponent)
-            .cardMovieViewModule(CardMovieViewModule(this))
-            .build()
-            .inject(this)
-    }
-
     override fun showMovieInfo(movieInfo: MovieInfo) {
         tv_title.text = movieInfo.title
         tv_release_date.text = movieInfo.releaseDate
@@ -56,5 +47,14 @@ class CardMovieViewActivity : BaseLoadingViewActivity(), CardMovieView {
             .load(IMAGE_URL + movieInfo.posterPath)
             .into(iv_poster)
         group_labels.visibility = View.VISIBLE
+    }
+
+    private fun daggerInject() {
+        val appComponent = (application as App).getComponent()
+        DaggerCardMovieComponent.builder()
+            .appComponent(appComponent)
+            .cardMovieViewModule(CardMovieViewModule(this))
+            .build()
+            .inject(this)
     }
 }

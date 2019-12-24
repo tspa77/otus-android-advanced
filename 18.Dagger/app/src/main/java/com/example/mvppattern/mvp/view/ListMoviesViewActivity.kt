@@ -38,6 +38,13 @@ class ListMoviesViewActivity : BaseLoadingViewActivity(), ListMoviesView,
         listMoviesPresenter.getListMovies()
     }
 
+    override fun onItemClicked(moviePreview: MoviePreview) {
+        loadMoviesDetailInfo(moviePreview.id)
+    }
+
+    override fun showListMovies(listMovies: List<MoviePreview>) =
+        movieAdapter.setData(listMovies)
+
     private fun daggerInject() {
         val appComponent = (application as App).getComponent()
         DaggerListMoviesComponent.builder()
@@ -47,16 +54,9 @@ class ListMoviesViewActivity : BaseLoadingViewActivity(), ListMoviesView,
             .inject(this)
     }
 
-    override fun onItemClicked(moviePreview: MoviePreview) {
-        loadMoviesDetailInfo(moviePreview.id)
-    }
-
     private fun loadMoviesDetailInfo(id: Int) {
         val intent = Intent(this, CardMovieViewActivity::class.java)
         intent.putExtra(MOVIE_ID, id)
         startActivity(intent)
     }
-
-    override fun showListMovies(listMovies: List<MoviePreview>) =
-        movieAdapter.setData(listMovies)
 }
