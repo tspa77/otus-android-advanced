@@ -9,7 +9,7 @@ import com.example.mvppattern.R
 import com.example.mvppattern.adapter.MovieAdapter
 import com.example.mvppattern.application.App
 import com.example.mvppattern.di.component.DaggerListMoviesComponent
-import com.example.mvppattern.di.module.ListMoviesViewModule
+import com.example.mvppattern.di.module.ListMoviesModule
 import com.example.mvppattern.mvp.model.MoviePreview
 import com.example.mvppattern.mvp.presenter.ListMoviesPresenter
 import kotlinx.android.synthetic.main.activity_list_preview_view.*
@@ -49,7 +49,7 @@ class ListMoviesViewActivity : BaseLoadingViewActivity(), ListMoviesView,
         val appComponent = (application as App).getComponent()
         DaggerListMoviesComponent.builder()
             .appComponent(appComponent)
-            .listMoviesViewModule(ListMoviesViewModule(this))
+            .listMoviesModule(ListMoviesModule(this))
             .build()
             .inject(this)
     }

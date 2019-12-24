@@ -9,7 +9,12 @@ import dagger.Provides
 
 @kotlinx.serialization.UnstableDefault
 @Module
-class ListMoviesPresenterModule {
+class ListMoviesModule(private val activity: ListMoviesView) {
+
+    @Provides
+    fun provideListMoviesView(): ListMoviesView {
+        return activity
+    }
 
     @Provides
     fun provideListMoviesPresenter(view: ListMoviesView, repository: Repository): ListMoviesPresenter {
