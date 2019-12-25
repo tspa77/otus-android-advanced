@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 <!--  Когда ставим ImageView - разметка Ок       -->
-        <com.example.mvppattern.customui.ImageViewTornEdges
+        <com.example.mvppattern.customui.TornEdgesImageView
             android:id="@+id/iv_poster"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
             tools:text="@string/tv_vote_lbl" />
 
 
-        <com.example.mvppattern.customui.Vote
+        <com.example.mvppattern.customui.VoteView
             android:id="@+id/cv_vote"
             android:layout_width="75dp"
             android:layout_height="75dp"

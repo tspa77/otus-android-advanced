@@ -6,8 +6,9 @@ import com.example.mvppattern.mvp.presenter.CardMoviePresenterImpl
 import com.example.mvppattern.mvp.view.CardMovieView
 import dagger.Module
 import dagger.Provides
+import kotlinx.serialization.UnstableDefault
 
-@kotlinx.serialization.UnstableDefault
+@UnstableDefault
 @Module
 class CardMovieModule(private val activity: CardMovieView) {
 

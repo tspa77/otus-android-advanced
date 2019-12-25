@@ -8,7 +8,7 @@ import android.widget.ImageView
 import kotlin.math.roundToInt
 
 
-class ImageViewTornEdges(context: Context, attributeSet: AttributeSet) :
+class TornEdgesImageView(context: Context, attributeSet: AttributeSet) :
     ImageView(context, attributeSet) {
 
     companion object {

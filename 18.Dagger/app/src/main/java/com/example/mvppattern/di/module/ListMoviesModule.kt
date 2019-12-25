@@ -6,8 +6,9 @@ import com.example.mvppattern.mvp.presenter.ListMoviesPresenterImpl
 import com.example.mvppattern.mvp.view.ListMoviesView
 import dagger.Module
 import dagger.Provides
+import kotlinx.serialization.UnstableDefault
 
-@kotlinx.serialization.UnstableDefault
+@UnstableDefault
 @Module
 class ListMoviesModule(private val activity: ListMoviesView) {
 

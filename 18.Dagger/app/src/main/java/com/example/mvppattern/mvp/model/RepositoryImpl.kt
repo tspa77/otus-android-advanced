@@ -1,10 +1,11 @@
 package com.example.mvppattern.mvp.model
 
 import android.util.Log
-import com.example.mvppattern.AppConstants.MY_LOG_TAG
+import com.example.mvppattern.AppConstants.TMDB_LOG_TAG
 import com.example.mvppattern.mvp.model.network.NetworkProvider
+import kotlinx.serialization.UnstableDefault
 
-@kotlinx.serialization.UnstableDefault
+@UnstableDefault
 class RepositoryImpl (private val networkProvider: NetworkProvider) :
     Repository {
 
@@ -13,30 +14,30 @@ class RepositoryImpl (private val networkProvider: NetworkProvider) :
     // ПОка он здесь для создания каноничной модели, но при необходимости, здесь при
     // ошибке сети реализую обращение к кэшированным данным
 
-    override fun getListPreviews(
+    override fun getListMoviePreviews(
         onDone: (List<MoviePreview>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        networkProvider.downloadListPreviews({
+        networkProvider.requestListMoviePreviews({
             onDone(it)
-            Log.d(MY_LOG_TAG, "Repository\n" + it.joinToString("\n"))
+            Log.d(TMDB_LOG_TAG, "Repository\n" + it.joinToString("\n"))
         }, {
             onError(it)
-            Log.d(MY_LOG_TAG, "Repository\n" + it.stackTrace.joinToString("\n"))
+            Log.d(TMDB_LOG_TAG, "Repository\n" + it.stackTrace.joinToString("\n"))
         })
     }
 
-    override fun getDetailsInfo(
+    override fun getMovieInfo(
         id: Int,
         onDone: (MovieInfo) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        networkProvider.downloadDetailsInfo(id, {
+        networkProvider.requestMovieInfo(id, {
             onDone(it)
-            Log.d(MY_LOG_TAG, it.toString())
+            Log.d(TMDB_LOG_TAG, it.toString())
         }, {
             onError(it)
-            Log.d(MY_LOG_TAG, it.stackTrace.joinToString("\n"))
+            Log.d(TMDB_LOG_TAG, it.stackTrace.joinToString("\n"))
         })
     }
 }

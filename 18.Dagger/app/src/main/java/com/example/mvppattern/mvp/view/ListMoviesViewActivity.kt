@@ -35,14 +35,14 @@ class ListMoviesViewActivity : BaseLoadingViewActivity(), ListMoviesView,
         rv_movies.adapter = movieAdapter
         rv_movies.layoutManager = LinearLayoutManager(this)
 
-        listMoviesPresenter.getListMovies()
+        listMoviesPresenter.getListMoviePreviews()
     }
 
     override fun onItemClicked(moviePreview: MoviePreview) {
         loadMoviesDetailInfo(moviePreview.id)
     }
 
-    override fun showListMovies(listMovies: List<MoviePreview>) =
+    override fun showgetListMoviePreviews(listMovies: List<MoviePreview>) =
         movieAdapter.setData(listMovies)
 
     private fun daggerInject() {

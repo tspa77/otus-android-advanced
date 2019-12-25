@@ -3,8 +3,9 @@ package com.example.mvppattern.application
 import android.app.Application
 import com.example.mvppattern.di.component.AppComponent
 import com.example.mvppattern.di.component.DaggerAppComponent
+import kotlinx.serialization.UnstableDefault
 
-@kotlinx.serialization.UnstableDefault
+@UnstableDefault
 class App : Application() {
     private lateinit var component: AppComponent
 

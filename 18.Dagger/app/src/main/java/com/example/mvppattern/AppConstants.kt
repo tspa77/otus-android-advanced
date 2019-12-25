@@ -8,5 +8,5 @@ object AppConstants {
     const val MOVIE_ID = "MOVIE_ID"
 
     // other
-    const val MY_LOG_TAG = "MY_LOG_TAG"
+    const val TMDB_LOG_TAG = "TMDB_LOG_TAG"
 }

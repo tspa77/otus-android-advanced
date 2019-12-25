@@ -4,5 +4,5 @@ import com.example.mvppattern.mvp.model.MoviePreview
 
 interface ListMoviesView : BaseLoadingView {
 
-    fun showListMovies(listMovies: List<MoviePreview>)
+    fun showgetListMoviePreviews(listMovies: List<MoviePreview>)
 }

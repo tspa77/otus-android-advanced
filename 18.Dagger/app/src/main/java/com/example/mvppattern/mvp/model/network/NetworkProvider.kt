@@ -5,7 +5,7 @@ import com.example.mvppattern.mvp.model.MoviePreview
 
 interface NetworkProvider {
 
-    fun downloadListPreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit)
+    fun requestListMoviePreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit)
 
-    fun downloadDetailsInfo(id: Int, onDone: (MovieInfo) -> Unit, onError: (Throwable) -> Unit)
+    fun requestMovieInfo(id: Int, onDone: (MovieInfo) -> Unit, onError: (Throwable) -> Unit)
 }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 @kotlinx.serialization.UnstableDefault
 class NetworkProviderImpl (private val api: Api) : NetworkProvider {
 
-    override fun downloadListPreviews(
+    override fun requestListMoviePreviews(
         onDone: (List<MoviePreview>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
@@ -22,7 +22,7 @@ class NetworkProviderImpl (private val api: Api) : NetworkProvider {
         }
     }
 
-    override fun downloadDetailsInfo(
+    override fun requestMovieInfo(
         id: Int,
         onDone: (MovieInfo) -> Unit,
         onError: (Throwable) -> Unit

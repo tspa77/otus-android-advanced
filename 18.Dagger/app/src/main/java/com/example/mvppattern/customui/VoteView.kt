@@ -11,7 +11,7 @@ import android.view.View
 import com.example.mvppattern.R
 
 
-class Vote(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
+class VoteView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
 
     companion object {
         const val CIRCLE_VOTE_TEXT_RATIO = 2.25F
@@ -52,7 +52,7 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
         midWidth = w / 2f
 
         // set text parameters
-        paintText.textSize = circle.bottom / Companion.CIRCLE_VOTE_TEXT_RATIO
+        paintText.textSize = circle.bottom / CIRCLE_VOTE_TEXT_RATIO
         val offsetY = (paintText.descent() + paintText.ascent()) / 2
         textWidthGuideline = midWidth - offsetY
     }
@@ -61,7 +61,7 @@ class Vote(context: Context, attributeSet: AttributeSet) : View(context, attribu
         val sweepAngleBoundary = 360 / 10 * vote
         val valueAnimator = ValueAnimator.ofFloat(0f, sweepAngleBoundary)
         valueAnimator.apply {
-            duration = Companion.CIRCLE_VOTE_ANIMATION_DURATION
+            duration = CIRCLE_VOTE_ANIMATION_DURATION
             addUpdateListener {
                 sweepAngle = it.animatedValue as Float
                 invalidate()

@@ -1,26 +1,27 @@
 package com.example.mvppattern.mvp.presenter
 
 import android.util.Log
-import com.example.mvppattern.AppConstants.MY_LOG_TAG
+import com.example.mvppattern.AppConstants.TMDB_LOG_TAG
 import com.example.mvppattern.mvp.model.Repository
 import com.example.mvppattern.mvp.view.ListMoviesView
+import kotlinx.serialization.UnstableDefault
 
-@kotlinx.serialization.UnstableDefault
-class ListMoviesPresenterImpl (
+@UnstableDefault
+class ListMoviesPresenterImpl(
     private val view: ListMoviesView,
     private val repository: Repository
 ) : ListMoviesPresenter {
 
-    override fun getListMovies() {
+    override fun getListMoviePreviews() {
         view.showLoading()
-        repository.getListPreviews({
+        repository.getListMoviePreviews({
             view.hideLoading()
-            view.showListMovies(it)
-            Log.d(MY_LOG_TAG, it.toString())
+            view.showgetListMoviePreviews(it)
+            Log.d(TMDB_LOG_TAG, it.toString())
         }, {
             view.hideLoading()
             view.showError(it.localizedMessage!!)
-            Log.d(MY_LOG_TAG, it.stackTrace.joinToString("\n"))
+            Log.d(TMDB_LOG_TAG, it.stackTrace.joinToString("\n"))
         })
     }
 }
