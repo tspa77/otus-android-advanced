@@ -68,8 +68,4 @@ class NetworkModule {
             }
         }
     }
-
-    @Provides
-    @Singleton
-    fun provideAuthInterceptor(): AuthInterceptor = AuthInterceptor()
 }

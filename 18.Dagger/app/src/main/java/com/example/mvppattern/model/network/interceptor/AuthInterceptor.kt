@@ -3,8 +3,9 @@ package com.example.mvppattern.model.network.interceptor
 import com.example.mvppattern.common.AppConstants
 import okhttp3.Interceptor
 import okhttp3.Response
+import javax.inject.Inject
 
-class AuthInterceptor : Interceptor {
+class AuthInterceptor @Inject constructor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val newUrl = chain.request().url
             .newBuilder()
