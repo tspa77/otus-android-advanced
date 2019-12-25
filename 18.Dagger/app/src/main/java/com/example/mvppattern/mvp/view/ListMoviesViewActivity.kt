@@ -42,7 +42,7 @@ class ListMoviesViewActivity : BaseLoadingViewActivity(), ListMoviesView,
         loadMoviesDetailInfo(moviePreview.id)
     }
 
-    override fun showgetListMoviePreviews(listMovies: List<MoviePreview>) =
+    override fun showListMoviePreviews(listMovies: List<MoviePreview>) =
         movieAdapter.setData(listMovies)
 
     private fun daggerInject() {

@@ -16,7 +16,7 @@ class ListMoviesPresenterImpl(
         view.showLoading()
         repository.getListMoviePreviews({
             view.hideLoading()
-            view.showgetListMoviePreviews(it)
+            view.showListMoviePreviews(it)
             Log.d(TMDB_LOG_TAG, it.toString())
         }, {
             view.hideLoading()
