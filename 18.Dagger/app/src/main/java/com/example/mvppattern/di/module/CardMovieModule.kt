@@ -17,8 +17,5 @@ class CardMovieModule(private val activity: CardMovieView) {
 
     @Provides
     fun provideDetailsPresenter(view: CardMovieView, repository: Repository): CardMoviePresenter =
-        CardMoviePresenterImpl(
-            view,
-            repository
-        )
+        CardMoviePresenterImpl(view, repository)
 }
