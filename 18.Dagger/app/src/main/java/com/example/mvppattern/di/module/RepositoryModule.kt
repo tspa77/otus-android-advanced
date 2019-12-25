@@ -10,10 +10,11 @@ import javax.inject.Singleton
 
 @UnstableDefault
 @Module
-class RepositoryModule {
+object RepositoryModule {
 
     @Provides
     @Singleton
+    @JvmStatic
     fun provideRepository(networkProvider: NetworkProvider): Repository =
         RepositoryImpl(networkProvider)
 }

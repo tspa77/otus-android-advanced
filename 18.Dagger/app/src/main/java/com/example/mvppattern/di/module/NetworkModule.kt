@@ -19,19 +19,22 @@ import javax.inject.Singleton
 
 @UnstableDefault
 @Module
-class NetworkModule {
+object NetworkModule {
 
     @Provides
     @Singleton
+    @JvmStatic
     fun provideNetworkProvider(api: Api): NetworkProvider = NetworkProviderImpl(api)
 
     @Provides
     @Singleton
+    @JvmStatic
     fun provideApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
 
     @UnstableDefault
     @Provides
     @Singleton
+    @JvmStatic
     fun provideRetrofit(okHttp: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(AppConstants.BASE_URL)
@@ -46,6 +49,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
+    @JvmStatic
     fun provideOkHtpClient(
         loggingInterceptor: HttpLoggingInterceptor,
         authInterceptor: AuthInterceptor
@@ -59,6 +63,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
+    @JvmStatic
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) {
