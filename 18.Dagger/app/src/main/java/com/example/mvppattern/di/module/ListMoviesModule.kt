@@ -15,24 +15,17 @@ import kotlinx.serialization.UnstableDefault
 class ListMoviesModule(private val activity: ListMoviesView) {
 
     @Provides
-    fun provideListMoviesView(): ListMoviesView {
-        return activity
-    }
+    fun provideListMoviesView(): ListMoviesView = activity
 
     @Provides
     fun provideListMoviesPresenter(
-        view: ListMoviesView,
-        repository: Repository
-    ): ListMoviesPresenter {
-        return ListMoviesPresenterImpl(view, repository)
-    }
+        view: ListMoviesView, repository: Repository
+    ): ListMoviesPresenter = ListMoviesPresenterImpl(view, repository)
 
     @Provides
     fun provideMovieAdapter(
         context: Context, onItemClickListener: MovieAdapter.OnItemClickListener
-    ): MovieAdapter {
-        return MovieAdapter(context, onItemClickListener)
-    }
+    ): MovieAdapter = MovieAdapter(context, onItemClickListener)
 
     @Provides
     fun provideContext(): Context = activity as Context
@@ -40,6 +33,4 @@ class ListMoviesModule(private val activity: ListMoviesView) {
     @Provides
     fun provideOnItemClickListener(): MovieAdapter.OnItemClickListener =
         activity as MovieAdapter.OnItemClickListener
-
-
 }

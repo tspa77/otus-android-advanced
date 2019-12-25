@@ -14,7 +14,6 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideRepository(networkProvider: NetworkProvider): Repository {
-        return RepositoryImpl(networkProvider)
-    }
+    fun provideRepository(networkProvider: NetworkProvider): Repository =
+        RepositoryImpl(networkProvider)
 }

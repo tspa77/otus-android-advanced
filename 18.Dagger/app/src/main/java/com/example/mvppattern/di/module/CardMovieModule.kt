@@ -13,12 +13,9 @@ import kotlinx.serialization.UnstableDefault
 class CardMovieModule(private val activity: CardMovieView) {
 
     @Provides
-    fun provideCardMovieView(): CardMovieView {
-        return activity
-    }
+    fun provideCardMovieView(): CardMovieView = activity
 
     @Provides
-    fun provideDetailsPresenter(view: CardMovieView, repository: Repository): CardMoviePresenter {
-        return CardMoviePresenterImpl(view, repository)
-    }
+    fun provideDetailsPresenter(view: CardMovieView, repository: Repository): CardMoviePresenter =
+        CardMoviePresenterImpl(view, repository)
 }
