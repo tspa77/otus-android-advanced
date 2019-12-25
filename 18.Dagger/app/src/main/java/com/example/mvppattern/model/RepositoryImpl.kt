@@ -1,8 +1,8 @@
-package com.example.mvppattern.mvp.model
+package com.example.mvppattern.model
 
 import android.util.Log
-import com.example.mvppattern.AppConstants.TMDB_LOG_TAG
-import com.example.mvppattern.mvp.model.network.NetworkProvider
+import com.example.mvppattern.common.AppConstants.TMDB_LOG_TAG
+import com.example.mvppattern.model.network.NetworkProvider
 import kotlinx.serialization.UnstableDefault
 
 @UnstableDefault

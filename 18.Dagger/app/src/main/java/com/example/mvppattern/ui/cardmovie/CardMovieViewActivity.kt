@@ -1,22 +1,23 @@
-package com.example.mvppattern.mvp.view
+package com.example.mvppattern.ui.cardmovie
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import com.example.mvppattern.AppConstants.IMAGE_URL
-import com.example.mvppattern.AppConstants.MOVIE_ID
+import com.example.mvppattern.common.AppConstants.IMAGE_URL
+import com.example.mvppattern.common.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.application.App
 import com.example.mvppattern.di.component.DaggerCardMovieComponent
 import com.example.mvppattern.di.module.CardMovieModule
-import com.example.mvppattern.mvp.model.MovieInfo
-import com.example.mvppattern.mvp.presenter.CardMoviePresenter
+import com.example.mvppattern.model.MovieInfo
+import com.example.mvppattern.ui.baseloading.BaseLoadingViewActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_details_view.*
 import javax.inject.Inject
 
 @kotlinx.serialization.UnstableDefault
-class CardMovieViewActivity : BaseLoadingViewActivity(), CardMovieView {
+class CardMovieViewActivity : BaseLoadingViewActivity(),
+    CardMovieView {
 
     @Inject
     lateinit var cardMoviePresenter: CardMoviePresenter

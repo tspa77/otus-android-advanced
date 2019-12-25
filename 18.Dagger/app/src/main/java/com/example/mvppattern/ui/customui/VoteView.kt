@@ -1,4 +1,4 @@
-package com.example.mvppattern.customui
+package com.example.mvppattern.ui.customui
 
 import android.animation.ValueAnimator
 import android.content.Context

@@ -1,11 +1,11 @@
 package com.example.mvppattern.di.module
 
-import com.example.mvppattern.AppConstants
+import com.example.mvppattern.common.AppConstants
 import com.example.mvppattern.BuildConfig
-import com.example.mvppattern.mvp.model.network.Api
-import com.example.mvppattern.mvp.model.network.NetworkProvider
-import com.example.mvppattern.mvp.model.network.NetworkProviderImpl
-import com.example.mvppattern.mvp.model.network.interceptor.AuthInterceptor
+import com.example.mvppattern.model.network.Api
+import com.example.mvppattern.model.network.NetworkProvider
+import com.example.mvppattern.model.network.NetworkProviderImpl
+import com.example.mvppattern.model.network.interceptor.AuthInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides

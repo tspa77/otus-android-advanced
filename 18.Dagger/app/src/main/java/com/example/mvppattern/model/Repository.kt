@@ -1,4 +1,4 @@
-package com.example.mvppattern.mvp.model
+package com.example.mvppattern.model
 
 interface Repository {
 

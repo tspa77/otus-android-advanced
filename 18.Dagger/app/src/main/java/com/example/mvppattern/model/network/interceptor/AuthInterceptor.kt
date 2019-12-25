@@ -1,6 +1,6 @@
-package com.example.mvppattern.mvp.model.network.interceptor
+package com.example.mvppattern.model.network.interceptor
 
-import com.example.mvppattern.AppConstants
+import com.example.mvppattern.common.AppConstants
 import okhttp3.Interceptor
 import okhttp3.Response
 

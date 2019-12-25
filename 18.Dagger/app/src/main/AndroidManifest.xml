@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.mvppattern.mvp.view.BaseLoadingViewActivity"></activity>
-        <activity android:name="com.example.mvppattern.mvp.view.CardMovieViewActivity" />
-        <activity android:name="com.example.mvppattern.mvp.view.ListMoviesViewActivity">
+        <activity android:name="com.example.mvppattern.ui.baseloading.BaseLoadingViewActivity"></activity>
+        <activity android:name="com.example.mvppattern.ui.cardmovie.CardMovieViewActivity" />
+        <activity android:name="com.example.mvppattern.ui.listmovies.ListMoviesViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

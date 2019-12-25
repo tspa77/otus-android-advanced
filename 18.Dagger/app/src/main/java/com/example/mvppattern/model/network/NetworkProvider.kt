@@ -1,7 +1,7 @@
-package com.example.mvppattern.mvp.model.network
+package com.example.mvppattern.model.network
 
-import com.example.mvppattern.mvp.model.MovieInfo
-import com.example.mvppattern.mvp.model.MoviePreview
+import com.example.mvppattern.model.MovieInfo
+import com.example.mvppattern.model.MoviePreview
 
 interface NetworkProvider {
 

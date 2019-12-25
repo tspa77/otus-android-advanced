@@ -1,4 +1,4 @@
-package com.example.mvppattern.customui
+package com.example.mvppattern.ui.customui
 
 import android.content.Context
 import android.graphics.*

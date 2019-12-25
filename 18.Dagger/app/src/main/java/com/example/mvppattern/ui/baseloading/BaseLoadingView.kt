@@ -1,4 +1,4 @@
-package com.example.mvppattern.mvp.view
+package com.example.mvppattern.ui.baseloading
 
 interface BaseLoadingView {
 

@@ -1,9 +1,8 @@
-package com.example.mvppattern.mvp.presenter
+package com.example.mvppattern.ui.cardmovie
 
 import android.util.Log
-import com.example.mvppattern.AppConstants.TMDB_LOG_TAG
-import com.example.mvppattern.mvp.model.Repository
-import com.example.mvppattern.mvp.view.CardMovieView
+import com.example.mvppattern.common.AppConstants.TMDB_LOG_TAG
+import com.example.mvppattern.model.Repository
 import kotlinx.serialization.UnstableDefault
 
 @UnstableDefault

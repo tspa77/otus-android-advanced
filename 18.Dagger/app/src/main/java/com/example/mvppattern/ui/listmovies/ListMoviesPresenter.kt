@@ -1,4 +1,4 @@
-package com.example.mvppattern.mvp.presenter
+package com.example.mvppattern.ui.listmovies
 
 interface ListMoviesPresenter {
 

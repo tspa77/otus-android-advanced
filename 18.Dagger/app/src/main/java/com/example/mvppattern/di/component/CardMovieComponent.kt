@@ -2,7 +2,7 @@ package com.example.mvppattern.di.component
 
 import com.example.mvppattern.di.module.CardMovieModule
 import com.example.mvppattern.di.scope.ActivityScope
-import com.example.mvppattern.mvp.view.CardMovieViewActivity
+import com.example.mvppattern.ui.cardmovie.CardMovieViewActivity
 import dagger.Component
 import kotlinx.serialization.UnstableDefault
 

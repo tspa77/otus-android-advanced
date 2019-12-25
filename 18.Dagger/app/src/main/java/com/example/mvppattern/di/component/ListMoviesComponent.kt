@@ -2,7 +2,7 @@ package com.example.mvppattern.di.component
 
 import com.example.mvppattern.di.scope.ActivityScope
 import com.example.mvppattern.di.module.ListMoviesModule
-import com.example.mvppattern.mvp.view.ListMoviesViewActivity
+import com.example.mvppattern.ui.listmovies.ListMoviesViewActivity
 import dagger.Component
 import kotlinx.serialization.UnstableDefault
 

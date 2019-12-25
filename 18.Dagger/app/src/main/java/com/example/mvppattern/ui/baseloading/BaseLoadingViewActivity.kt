@@ -1,12 +1,14 @@
-package com.example.mvppattern.mvp.view
+package com.example.mvppattern.ui.baseloading
 
 import android.util.Log
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mvppattern.ui.baseloading.BaseLoadingView
 
 
-abstract class BaseLoadingViewActivity : AppCompatActivity(), BaseLoadingView {
+abstract class BaseLoadingViewActivity : AppCompatActivity(),
+    BaseLoadingView {
 
     abstract val progressBar: ProgressBar
 

@@ -2,7 +2,7 @@ package com.example.mvppattern.di.component
 
 import com.example.mvppattern.di.module.NetworkModule
 import com.example.mvppattern.di.module.RepositoryModule
-import com.example.mvppattern.mvp.model.Repository
+import com.example.mvppattern.model.Repository
 import dagger.Component
 import kotlinx.serialization.UnstableDefault
 import javax.inject.Singleton
