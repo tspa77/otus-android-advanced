@@ -22,7 +22,9 @@ class ListMoviesViewActivity : BaseLoadingViewActivity(), ListMoviesView,
     @Inject
     lateinit var listMoviesPresenter: ListMoviesPresenter
 
-    private val movieAdapter = MovieAdapter(this, this)
+    @Inject
+    lateinit var movieAdapter: MovieAdapter
+//    private val movieAdapter = MovieAdapter(this, this)
 
     override val progressBar: ProgressBar
         get() = findViewById(R.id.progress_bar)
