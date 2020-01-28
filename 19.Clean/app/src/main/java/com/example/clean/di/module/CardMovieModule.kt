@@ -1,14 +1,13 @@
 package com.example.clean.di.module
 
-import com.example.clean.model.Repository
-import com.example.clean.ui.cardmovie.CardMoviePresenter
-import com.example.clean.ui.cardmovie.CardMoviePresenterImpl
-import com.example.clean.ui.cardmovie.CardMovieView
+import com.example.clean.data.repository.Repository
+import com.example.clean.presentation.presenter.CardMoviePresenter
+import com.example.clean.presentation.presenter.CardMoviePresenterImpl
+import com.example.clean.presentation.view.CardMovieView
 import dagger.Module
 import dagger.Provides
-import kotlinx.serialization.UnstableDefault
 
-@UnstableDefault
+
 @Module
 class CardMovieModule(private val activity: CardMovieView) {
 
@@ -17,5 +16,8 @@ class CardMovieModule(private val activity: CardMovieView) {
 
     @Provides
     fun provideDetailsPresenter(view: CardMovieView, repository: Repository): CardMoviePresenter =
-        CardMoviePresenterImpl(view, repository)
+        CardMoviePresenterImpl(
+            view,
+            repository
+        )
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context="com.example.clean.ui.cardmovie.CardMovieViewActivity">
+    tools:context="com.example.clean.presentation.view.CardMovieViewActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 <!--  Когда ставим ImageView - разметка Ок       -->
-        <com.example.clean.ui.customui.TornEdgesImageView
+        <com.example.clean.presentation.view.customview.TornEdgesImageView
             android:id="@+id/iv_poster"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
             tools:text="@string/tv_vote_lbl" />
 
 
-        <com.example.clean.ui.customui.VoteView
+        <com.example.clean.presentation.view.customview.VoteView
             android:id="@+id/cv_vote"
             android:layout_width="75dp"
             android:layout_height="75dp"

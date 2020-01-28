@@ -2,9 +2,10 @@ package com.example.clean.di.component
 
 import com.example.clean.di.module.CardMovieModule
 import com.example.clean.di.scope.ActivityScope
-import com.example.clean.ui.cardmovie.CardMovieViewActivity
+import com.example.clean.presentation.view.CardMovieViewActivity
 import dagger.Component
 import kotlinx.serialization.UnstableDefault
+
 
 @UnstableDefault
 @ActivityScope

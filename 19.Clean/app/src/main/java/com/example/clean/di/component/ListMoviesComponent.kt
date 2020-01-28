@@ -2,9 +2,10 @@ package com.example.clean.di.component
 
 import com.example.clean.di.scope.ActivityScope
 import com.example.clean.di.module.ListMoviesModule
-import com.example.clean.ui.listmovies.ListMoviesViewActivity
+import com.example.clean.presentation.view.ListMoviesViewActivity
 import dagger.Component
 import kotlinx.serialization.UnstableDefault
+
 
 @UnstableDefault
 @ActivityScope

@@ -1,14 +1,14 @@
 package com.example.clean.di.module
 
-import com.example.clean.model.Repository
-import com.example.clean.model.RepositoryImpl
-import com.example.clean.model.network.NetworkProvider
+import com.example.clean.data.repository.Repository
+import com.example.clean.data.repository.RepositoryImpl
+import com.example.clean.domain.provider.NetworkProvider
 import dagger.Module
 import dagger.Provides
 import kotlinx.serialization.UnstableDefault
 import javax.inject.Singleton
 
-@UnstableDefault
+
 @Module
 object RepositoryModule {
 
