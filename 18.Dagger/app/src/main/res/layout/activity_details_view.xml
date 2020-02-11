@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 <!--  Когда ставим ImageView - разметка Ок       -->
-        <com.example.mvppattern.ui.customui.TornEdgesImageView
+        <ImageView
             android:id="@+id/iv_poster"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
