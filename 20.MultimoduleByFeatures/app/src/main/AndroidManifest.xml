@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".application.App"
+        android:name="com.example.main.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.mvppattern.ui.baseloading.BaseLoadingViewActivity" />
-        <activity android:name="com.example.mvppattern.ui.cardmovie.CardMovieViewActivity" />
-        <activity android:name="com.example.mvppattern.ui.listmovies.ListMoviesViewActivity">
+        <activity android:name="com.example.main.view.BaseLoadingViewActivity" />
+        <activity android:name="com.example.card_moview.view.CardMovieViewActivity" />
+        <activity android:name="com.example.list_movies.view.ListMoviesViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
