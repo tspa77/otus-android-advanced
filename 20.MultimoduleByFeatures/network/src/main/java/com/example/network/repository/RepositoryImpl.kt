@@ -1,7 +1,8 @@
-package com.example.network
+package com.example.network.repository
 
 import android.util.Log
 import com.example.core.AppConstants.TMDB_LOG_TAG
+import com.example.network.provider.NetworkProvider
 import kotlinx.serialization.UnstableDefault
 
 @UnstableDefault

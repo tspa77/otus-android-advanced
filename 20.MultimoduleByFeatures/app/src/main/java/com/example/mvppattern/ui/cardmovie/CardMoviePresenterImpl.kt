@@ -2,7 +2,7 @@ package com.example.mvppattern.ui.cardmovie
 
 import android.util.Log
 import com.example.core.AppConstants.TMDB_LOG_TAG
-import com.example.network.Repository
+import com.example.network.repository.Repository
 import kotlinx.serialization.UnstableDefault
 
 @UnstableDefault

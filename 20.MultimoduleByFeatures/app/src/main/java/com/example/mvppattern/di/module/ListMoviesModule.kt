@@ -1,7 +1,7 @@
 package com.example.mvppattern.di.module
 
 import android.content.Context
-import com.example.network.Repository
+import com.example.network.repository.Repository
 import com.example.mvppattern.ui.listmovies.ListMoviesPresenter
 import com.example.mvppattern.ui.listmovies.ListMoviesPresenterImpl
 import com.example.mvppattern.ui.listmovies.ListMoviesView

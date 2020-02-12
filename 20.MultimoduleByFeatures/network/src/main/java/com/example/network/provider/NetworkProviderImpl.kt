@@ -1,13 +1,15 @@
-package com.example.network
+package com.example.network.provider
 
 import com.example.core.dto.MovieInfo
 import com.example.core.dto.MoviePreview
+import com.example.network.Api
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @kotlinx.serialization.UnstableDefault
-class NetworkProviderImpl (private val api: Api) : NetworkProvider {
+class NetworkProviderImpl (private val api: Api) :
+    NetworkProvider {
 
     override fun requestListMoviePreviews(
         onDone: (List<MoviePreview>) -> Unit,

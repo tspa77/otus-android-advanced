@@ -1,4 +1,4 @@
-package com.example.network
+package com.example.network.provider
 
 import com.example.core.dto.MovieInfo
 import com.example.core.dto.MoviePreview

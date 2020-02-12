@@ -1,7 +1,12 @@
-package com.example.network
+package com.example.network.di
 
 
+import com.example.network.Api
+import com.example.network.AuthInterceptor
+import com.example.network.BuildConfig
 import com.example.network.NetworkConstants.BASE_URL
+import com.example.network.provider.NetworkProvider
+import com.example.network.provider.NetworkProviderImpl
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -20,12 +25,14 @@ object NetworkModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun provideNetworkProvider(api: Api): NetworkProvider = NetworkProviderImpl(api)
+    fun provideNetworkProvider(api: Api): NetworkProvider =
+        NetworkProviderImpl(api)
 
     @Provides
     @Singleton
     @JvmStatic
-    fun provideApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
+    fun provideApi(retrofit: Retrofit): Api = retrofit.create(
+        Api::class.java)
 
     @Provides
     @Singleton
