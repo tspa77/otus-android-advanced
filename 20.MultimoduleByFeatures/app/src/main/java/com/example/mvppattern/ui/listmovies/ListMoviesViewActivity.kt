@@ -4,13 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mvppattern.common.AppConstants.MOVIE_ID
+import com.example.core.AppConstants.MOVIE_ID
 import com.example.mvppattern.R
 import com.example.mvppattern.ui.listmovies.adapter.MovieAdapter
 import com.example.mvppattern.application.App
 import com.example.mvppattern.di.component.DaggerListMoviesComponent
 import com.example.mvppattern.di.module.ListMoviesModule
-import com.example.core.dto.MoviePreview
 import com.example.mvppattern.ui.baseloading.BaseLoadingViewActivity
 import com.example.mvppattern.ui.cardmovie.CardMovieViewActivity
 import kotlinx.android.synthetic.main.activity_list_preview_view.*

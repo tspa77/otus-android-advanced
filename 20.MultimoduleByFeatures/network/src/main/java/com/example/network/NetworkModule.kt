@@ -1,11 +1,7 @@
-package com.example.mvppattern.di.module
+package com.example.network
 
-import com.example.mvppattern.common.AppConstants
-import com.example.mvppattern.BuildConfig
-import com.example.mvppattern.model.network.Api
-import com.example.mvppattern.model.network.NetworkProvider
-import com.example.mvppattern.model.network.NetworkProviderImpl
-import com.example.mvppattern.model.network.interceptor.AuthInterceptor
+
+import com.example.network.NetworkConstants.BASE_URL
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -31,13 +27,12 @@ object NetworkModule {
     @JvmStatic
     fun provideApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
 
-    @UnstableDefault
     @Provides
     @Singleton
     @JvmStatic
     fun provideRetrofit(okHttp: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(AppConstants.BASE_URL)
+            .baseUrl(BASE_URL)
             .client(okHttp)
             .addConverterFactory(
                 Json.nonstrict.asConverterFactory(

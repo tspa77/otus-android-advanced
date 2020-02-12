@@ -1,4 +1,4 @@
-package com.example.mvppattern.model
+package com.example.network
 
 interface Repository {
 

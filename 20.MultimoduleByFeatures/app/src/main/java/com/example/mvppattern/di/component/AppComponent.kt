@@ -1,8 +1,8 @@
 package com.example.mvppattern.di.component
 
-import com.example.mvppattern.di.module.NetworkModule
-import com.example.mvppattern.di.module.RepositoryModule
-import com.example.mvppattern.model.Repository
+import com.example.network.NetworkModule
+import com.example.network.RepositoryModule
+import com.example.network.Repository
 import dagger.Component
 import kotlinx.serialization.UnstableDefault
 import javax.inject.Singleton

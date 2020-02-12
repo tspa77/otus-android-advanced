@@ -1,4 +1,4 @@
-package com.example.mvppattern.model.network
+package com.example.network
 
 import com.example.core.dto.ListMoviePreviews
 import com.example.core.dto.MovieInfo

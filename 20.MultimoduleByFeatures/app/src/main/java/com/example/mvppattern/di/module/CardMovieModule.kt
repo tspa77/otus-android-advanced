@@ -1,6 +1,6 @@
 package com.example.mvppattern.di.module
 
-import com.example.mvppattern.model.Repository
+import com.example.network.Repository
 import com.example.mvppattern.ui.cardmovie.CardMoviePresenter
 import com.example.mvppattern.ui.cardmovie.CardMoviePresenterImpl
 import com.example.mvppattern.ui.cardmovie.CardMovieView

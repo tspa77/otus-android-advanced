@@ -1,4 +1,4 @@
-package com.example.mvppattern.model.network
+package com.example.network
 
 import com.example.core.dto.MovieInfo
 import com.example.core.dto.MoviePreview
@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class NetworkProviderImpl (private val api: Api) : NetworkProvider {
 
     override fun requestListMoviePreviews(
-        onDone: (List<com.example.core.dto.MoviePreview>) -> Unit,
+        onDone: (List<MoviePreview>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         CoroutineScope(Dispatchers.Main).launch {
@@ -24,7 +24,7 @@ class NetworkProviderImpl (private val api: Api) : NetworkProvider {
 
     override fun requestMovieInfo(
         id: Int,
-        onDone: (com.example.core.dto.MovieInfo) -> Unit,
+        onDone: (MovieInfo) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         CoroutineScope(Dispatchers.Main).launch {
