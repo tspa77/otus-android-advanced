@@ -15,7 +15,7 @@ class RepositoryImpl (private val networkProvider: NetworkProvider) :
     // ошибке сети реализую обращение к кэшированным данным
 
     override fun getListMoviePreviews(
-        onDone: (List<MoviePreview>) -> Unit,
+        onDone: (List<com.example.core.dto.MoviePreview>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         networkProvider.requestListMoviePreviews({
@@ -29,7 +29,7 @@ class RepositoryImpl (private val networkProvider: NetworkProvider) :
 
     override fun getMovieInfo(
         id: Int,
-        onDone: (MovieInfo) -> Unit,
+        onDone: (com.example.core.dto.MovieInfo) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         networkProvider.requestMovieInfo(id, {

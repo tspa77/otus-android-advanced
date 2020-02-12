@@ -10,7 +10,7 @@ import com.example.mvppattern.ui.listmovies.adapter.MovieAdapter
 import com.example.mvppattern.application.App
 import com.example.mvppattern.di.component.DaggerListMoviesComponent
 import com.example.mvppattern.di.module.ListMoviesModule
-import com.example.mvppattern.model.MoviePreview
+import com.example.core.dto.MoviePreview
 import com.example.mvppattern.ui.baseloading.BaseLoadingViewActivity
 import com.example.mvppattern.ui.cardmovie.CardMovieViewActivity
 import kotlinx.android.synthetic.main.activity_list_preview_view.*
@@ -42,11 +42,11 @@ class ListMoviesViewActivity : BaseLoadingViewActivity(),
         listMoviesPresenter.getListMoviePreviews()
     }
 
-    override fun onItemClicked(moviePreview: MoviePreview) {
+    override fun onItemClicked(moviePreview: com.example.core.dto.MoviePreview) {
         loadMoviesDetailInfo(moviePreview.id)
     }
 
-    override fun showListMoviePreviews(listMovies: List<MoviePreview>) =
+    override fun showListMoviePreviews(listMovies: List<com.example.core.dto.MoviePreview>) =
         movieAdapter.setData(listMovies)
 
     private fun daggerInject() {

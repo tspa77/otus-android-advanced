@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvppattern.common.AppConstants
-import com.example.mvppattern.model.MoviePreview
+import com.example.core.dto.MoviePreview
 import com.example.mvppattern.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.card_movie_item.view.*
@@ -19,13 +19,13 @@ class MovieAdapter(
     private val onItemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    private var listPreviews: List<MoviePreview> = emptyList()
+    private var listPreviews: List<com.example.core.dto.MoviePreview> = emptyList()
 
     interface OnItemClickListener {
-        fun onItemClicked(moviePreview: MoviePreview)
+        fun onItemClicked(moviePreview: com.example.core.dto.MoviePreview)
     }
 
-    fun setData(listPreviews: List<MoviePreview>) {
+    fun setData(listPreviews: List<com.example.core.dto.MoviePreview>) {
         this.listPreviews = listPreviews
         notifyDataSetChanged()
     }

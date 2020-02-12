@@ -24,6 +24,6 @@ abstract class BaseLoadingViewActivity : AppCompatActivity(),
 
     override fun showError(message: String) {
         Log.d("MY_TAG", message)
-        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
     }
 }

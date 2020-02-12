@@ -1,11 +1,11 @@
 package com.example.mvppattern.model.network
 
-import com.example.mvppattern.model.MovieInfo
-import com.example.mvppattern.model.MoviePreview
+import com.example.core.dto.MovieInfo
+import com.example.core.dto.MoviePreview
 
 interface NetworkProvider {
 
-    fun requestListMoviePreviews(onDone: (List<MoviePreview>) -> Unit, onError: (Throwable) -> Unit)
+    fun requestListMoviePreviews(onDone: (List<com.example.core.dto.MoviePreview>) -> Unit, onError: (Throwable) -> Unit)
 
-    fun requestMovieInfo(id: Int, onDone: (MovieInfo) -> Unit, onError: (Throwable) -> Unit)
+    fun requestMovieInfo(id: Int, onDone: (com.example.core.dto.MovieInfo) -> Unit, onError: (Throwable) -> Unit)
 }

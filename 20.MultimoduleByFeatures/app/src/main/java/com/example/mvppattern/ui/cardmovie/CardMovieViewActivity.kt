@@ -9,7 +9,7 @@ import com.example.mvppattern.R
 import com.example.mvppattern.application.App
 import com.example.mvppattern.di.component.DaggerCardMovieComponent
 import com.example.mvppattern.di.module.CardMovieModule
-import com.example.mvppattern.model.MovieInfo
+import com.example.core.dto.MovieInfo
 import com.example.mvppattern.ui.baseloading.BaseLoadingViewActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_details_view.*
@@ -38,7 +38,7 @@ class CardMovieViewActivity : BaseLoadingViewActivity(),
         group_labels.visibility = View.INVISIBLE
     }
 
-    override fun showMovieInfo(movieInfo: MovieInfo) {
+    override fun showMovieInfo(movieInfo: com.example.core.dto.MovieInfo) {
         tv_title.text = movieInfo.title
         tv_release_date.text = movieInfo.releaseDate
         tv_popularity.text = movieInfo.popularity

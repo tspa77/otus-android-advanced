@@ -1,7 +1,7 @@
 package com.example.mvppattern.model.network
 
-import com.example.mvppattern.model.ListMoviePreviews
-import com.example.mvppattern.model.MovieInfo
+import com.example.core.dto.ListMoviePreviews
+import com.example.core.dto.MovieInfo
 import retrofit2.http.GET
 import retrofit2.http.Path
 
