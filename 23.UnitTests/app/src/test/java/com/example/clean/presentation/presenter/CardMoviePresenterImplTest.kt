@@ -56,7 +56,7 @@ class CardMoviePresenterImplTest {
         cardMoviePresenter.getMovieInfo(1)
 
         verify(view, times(1)).showLoading()
-        verify(view, times(1)).hideLoading()
-        verify(view, times(1)).showError(error.localizedMessage)
+        verify(repository, times(1))
+            .getMovieInfo(1, mockOnDoneMovie, mockOnError)
     }
 }
