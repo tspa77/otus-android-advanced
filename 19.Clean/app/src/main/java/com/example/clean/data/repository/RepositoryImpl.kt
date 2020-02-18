@@ -1,7 +1,7 @@
 package com.example.clean.data.repository
 
 import android.util.Log
-import com.example.clean.domain.api.Api
+import com.example.clean.data.api.Api
 import com.example.clean.AppConstants.TMDB_LOG_TAG
 import com.example.clean.domain.dto.MovieInfo
 import com.example.clean.domain.dto.MoviePreview
