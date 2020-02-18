@@ -3,7 +3,7 @@ package com.example.clean.di.module
 import com.example.clean.BuildConfig
 import com.example.clean.data.repository.RepositoryImpl
 import com.example.clean.data.interceptor.AuthInterceptor
-import com.example.clean.domain.api.Api
+import com.example.clean.data.api.Api
 import com.example.clean.AppConstants
 import com.example.clean.domain.repo.Repository
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
