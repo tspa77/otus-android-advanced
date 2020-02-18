@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.clean.R
-import com.example.clean.application.App
+import com.example.clean.presentation.app.App
 import com.example.clean.di.component.DaggerListMoviesComponent
 import com.example.clean.di.module.ListMoviesModule
-import com.example.clean.domain.AppConstants.MOVIE_ID
+import com.example.clean.AppConstants.MOVIE_ID
 import com.example.clean.domain.dto.MoviePreview
 import com.example.clean.presentation.presenter.ListMoviesPresenter
 import com.example.clean.presentation.view.adapter.MovieAdapter

@@ -1,6 +1,6 @@
-package com.example.clean.data.service.interceptor
+package com.example.clean.data.interceptor
 
-import com.example.clean.domain.AppConstants
+import com.example.clean.AppConstants
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject

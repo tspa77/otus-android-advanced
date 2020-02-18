@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import com.example.clean.R
-import com.example.clean.application.App
+import com.example.clean.presentation.app.App
 import com.example.clean.di.component.DaggerCardMovieComponent
 import com.example.clean.di.module.CardMovieModule
-import com.example.clean.domain.AppConstants.IMAGE_URL
-import com.example.clean.domain.AppConstants.MOVIE_ID
+import com.example.clean.AppConstants.IMAGE_URL
+import com.example.clean.AppConstants.MOVIE_ID
 import com.example.clean.domain.dto.MovieInfo
 import com.example.clean.presentation.presenter.CardMoviePresenter
 import com.squareup.picasso.Picasso

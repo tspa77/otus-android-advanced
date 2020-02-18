@@ -1,8 +1,8 @@
 package com.example.clean.presentation.presenter
 
 import android.util.Log
-import com.example.clean.data.repository.Repository
-import com.example.clean.domain.AppConstants.TMDB_LOG_TAG
+import com.example.clean.domain.repo.Repository
+import com.example.clean.AppConstants.TMDB_LOG_TAG
 import com.example.clean.presentation.view.CardMovieView
 
 

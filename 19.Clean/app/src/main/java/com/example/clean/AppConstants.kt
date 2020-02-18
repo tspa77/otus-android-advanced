@@ -1,4 +1,4 @@
-package com.example.clean.domain
+package com.example.clean
 
 
 object AppConstants {

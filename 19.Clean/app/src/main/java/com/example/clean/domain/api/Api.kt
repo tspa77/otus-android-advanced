@@ -1,4 +1,4 @@
-package com.example.clean.data.service
+package com.example.clean.domain.api
 
 import com.example.clean.domain.dto.ListMoviePreviews
 import com.example.clean.domain.dto.MovieInfo

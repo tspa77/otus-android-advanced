@@ -1,4 +1,4 @@
-package com.example.clean.application
+package com.example.clean.presentation.app
 
 import android.app.Application
 import com.example.clean.di.component.AppComponent

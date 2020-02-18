@@ -1,7 +1,7 @@
 package com.example.clean.di.module
 
 import android.content.Context
-import com.example.clean.data.repository.Repository
+import com.example.clean.domain.repo.Repository
 import com.example.clean.presentation.presenter.ListMoviesPresenter
 import com.example.clean.presentation.presenter.ListMoviesPresenterImpl
 import com.example.clean.presentation.view.ListMoviesView

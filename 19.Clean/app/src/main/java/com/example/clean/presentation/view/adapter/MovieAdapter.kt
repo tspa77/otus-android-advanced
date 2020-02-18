@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.clean.domain.AppConstants
+import com.example.clean.AppConstants
 import com.example.clean.domain.dto.MoviePreview
 import com.example.clean.R
 import com.squareup.picasso.Picasso

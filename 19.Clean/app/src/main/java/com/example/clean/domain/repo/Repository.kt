@@ -1,4 +1,4 @@
-package com.example.clean.data.repository
+package com.example.clean.domain.repo
 
 import com.example.clean.domain.dto.MovieInfo
 import com.example.clean.domain.dto.MoviePreview
