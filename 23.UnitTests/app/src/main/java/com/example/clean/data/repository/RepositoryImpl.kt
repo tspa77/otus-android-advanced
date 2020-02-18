@@ -22,10 +22,10 @@ class RepositoryImpl(private val api: Api) :
             try {
                 val result = api.getListPopularMovies().results
                 onDone(result)
-                Log.d(TMDB_LOG_TAG, "Repository\n" + result.joinToString("\n"))
+//                Log.d(TMDB_LOG_TAG, "Repository\n" + result.joinToString("\n"))
             } catch (e: Exception) {
                 onError(e)
-                Log.d(TMDB_LOG_TAG, "Repository\n" + e.stackTrace.joinToString("\n"))
+//                Log.d(TMDB_LOG_TAG, "Repository\n" + e.stackTrace.joinToString("\n"))
             }
         }
     }
@@ -40,10 +40,10 @@ class RepositoryImpl(private val api: Api) :
             try {
                 val result = api.getMovie(id)
                 onDone(result)
-                Log.d(TMDB_LOG_TAG, result.toString())
+//                Log.d(TMDB_LOG_TAG, result.toString())
             } catch (e: java.lang.Exception) {
                 onError(e)
-                Log.d(TMDB_LOG_TAG, e.stackTrace.joinToString("\n"))
+//                Log.d(TMDB_LOG_TAG, e.stackTrace.joinToString("\n"))
             }
         }
     }
