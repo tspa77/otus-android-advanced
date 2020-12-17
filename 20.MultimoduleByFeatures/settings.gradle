@@ -1,0 +1,2 @@
+include ':app', ':core', ':network', ':main', ':list_movies', ':card_movie'
+rootProject.name='MultimoduleByFeatures'
